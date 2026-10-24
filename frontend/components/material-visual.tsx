@@ -1,3 +1,4 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import Image from "next/image";
 const slots: Record<string, number> = {
   hardware: 0,
@@ -23,10 +24,10 @@ export function MaterialVisual({
   return (
     <div className={"material-visual " + className}>
       {cover ? (
-        <img src={"/api/v1/media/" + cover} alt={title} loading="lazy" />
+        <img src={`${basePath}/api/v1/media/` + cover} alt={title} loading="lazy" />
       ) : (
         <Image
-          src={"/images/" + (slug in slots ? slug : "hardware") + ".webp"}
+          src={`${basePath}/images/` + (slug in slots ? slug : "hardware") + ".webp"}
           alt={"Illustrative " + title.toLowerCase()}
           fill
           sizes="(max-width:600px) 45vw, (max-width:1100px) 30vw, 25vw"
