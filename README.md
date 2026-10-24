@@ -8,6 +8,7 @@ Local website: `http://localhost:3000` · Staff studio: `/admin`. No default sta
 - [Architecture](docs/architecture.md)
 - [CMS guide](docs/cms-guide.md)
 - [aaPanel deployment](docs/deployment-aapanel.md)
+- [Repository-first deployment pipeline](docs/deployment-pipeline.md)
 - [Backup and restore](docs/backup-restore.md)
 - [Verified facts](docs/verified-facts.md)
 - [Asset provenance](docs/image-licenses.md)
