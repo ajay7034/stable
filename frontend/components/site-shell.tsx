@@ -1,4 +1,6 @@
 "use client";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -77,7 +79,7 @@ export function SiteShell({
       aria-label="Stable Building Materials Trading LLC home"
     >
       <Image
-        src="/logo-transparent.png"
+        src={`${basePath}/logo-transparent.png`}
         alt="Stable company logo"
         width={56}
         height={52}

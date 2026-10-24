@@ -1,4 +1,6 @@
 "use client";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 import { useEffect, useState } from "react";
 import { clientApi } from "@/lib/client-api";
 import { Search, Upload, ImageIcon, Trash2 } from "lucide-react";
@@ -153,7 +155,7 @@ export function MediaManager({ csrf }: { csrf: string }) {
           .map((m) => (
             <div className="card media-card" key={m.id}>
               <img
-                src={"/api/v1/media/" + m.id + "?size=thumb"}
+                src={`${basePath}/api/v1/media/` + m.id + "?size=thumb"}
                 alt={m.alt}
                 style={{ width: "100%", height: 180, objectFit: "cover" }}
               />

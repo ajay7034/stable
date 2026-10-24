@@ -1,4 +1,6 @@
 "use client";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -242,13 +244,13 @@ export default function Admin() {
       <div className="login-screen">
         <div className="login-visual">
           <Image
-            src="/images/architecture.webp"
+            src={`${basePath}/images/architecture.webp`}
             alt="Architectural concept"
             fill
             sizes="50vw"
           />
           <div>
-            <Image src="/logo-transparent.png" alt="Stable logo" width={80} height={74} />
+            <Image src={`${basePath}/logo-transparent.png`} alt="Stable logo" width={80} height={74} />
             <p className="eyebrow">STABLE CONTENT STUDIO</p>
             <h1>
               Built on trust.
@@ -320,7 +322,7 @@ export default function Admin() {
     <div className="studio">
       <aside className="studio-sidebar">
         <Link className="brand" href="/">
-          <Image src="/logo-transparent.png" alt="Stable logo" width={42} height={40} />
+          <Image src={`${basePath}/logo-transparent.png`} alt="Stable logo" width={42} height={40} />
           <span>
             STABLE<small>CONTENT STUDIO</small>
           </span>
@@ -440,7 +442,7 @@ export default function Admin() {
                   </div>
                 </div>
                 <Image
-                  src="/images/architecture.webp"
+                  src={`${basePath}/images/architecture.webp`}
                   alt="Architectural concept"
                   width={480}
                   height={380}
@@ -508,7 +510,7 @@ export default function Admin() {
                       </label>
                       <a
                         className="button"
-                        href={"/api/v1/admin/export/" + resource}
+                        href={`${basePath}/api/v1/admin/export/` + resource}
                       >
                         <Download size={15} />
                         Export CSV
@@ -522,7 +524,7 @@ export default function Admin() {
             <details className="import-panel">
               <summary>Import, export & bulk actions</summary>
               <div className="actions">
-                <a className="button" href="/api/v1/admin/export/products">
+                <a className="button" href={`${basePath}/api/v1/admin/export/products`}>
                   <Download size={15} />
                   Export CSV template
                 </a>
@@ -845,7 +847,7 @@ export default function Admin() {
                   {preview.cover_id && (
                     <img
                       className="content-cover"
-                      src={"/api/v1/media/" + preview.cover_id}
+                      src={`${basePath}/api/v1/media/` + preview.cover_id}
                       alt={preview.title}
                     />
                   )}
@@ -1041,7 +1043,7 @@ export default function Admin() {
                                 <p>
                                   <a
                                     className="text-link"
-                                    href={"/api/v1/admin/boq/" + r.id}
+                                    href={`${basePath}/api/v1/admin/boq/` + r.id}
                                   >
                                     Download private BOQ
                                     <Download size={13} />
@@ -1052,7 +1054,7 @@ export default function Admin() {
                                 <p>
                                   <a
                                     className="text-link"
-                                    href={"/api/v1/admin/resume/" + r.id}
+                                    href={`${basePath}/api/v1/admin/resume/` + r.id}
                                   >
                                     Resume, if provided
                                     <Download size={13} />

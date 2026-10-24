@@ -1,3 +1,4 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import {
   ArrowUpRight,
   ArrowRight,
@@ -43,8 +44,8 @@ export default async function Home() {
           className="hero-image"
           src={
             page.cover_id
-              ? "/api/v1/media/" + page.cover_id
-              : "/images/architecture.webp"
+              ? `${basePath}/api/v1/media/` + page.cover_id
+              : `${basePath}/images/architecture.webp`
           }
           unoptimized={!!page.cover_id}
           alt="Architectural concept illustration"
@@ -112,7 +113,7 @@ export default async function Home() {
             <section className="intro section-wrap" id="discover">
               <div className="intro-image">
                 <Image
-                  src="/images/architecture.webp"
+                  src={`${basePath}/images/architecture.webp`}
                   alt="Illustrative architectural details in warm light"
                   fill
                   sizes="(max-width:768px) 90vw, 42vw"
@@ -280,12 +281,12 @@ export default async function Home() {
                     <div className={"journal-art journal-art-" + i}>
                       {!!blog.cover_id ? (
                         <img
-                          src={"/api/v1/media/" + blog.cover_id}
+                          src={`${basePath}/api/v1/media/` + blog.cover_id}
                           alt={blog.title}
                         />
                       ) : i === 0 ? (
                         <Image
-                          src="/images/architecture.webp"
+                          src={`${basePath}/images/architecture.webp`}
                           alt="Architectural concept"
                           fill
                           sizes="(max-width:768px) 90vw, 30vw"

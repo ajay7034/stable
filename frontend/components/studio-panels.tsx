@@ -1,4 +1,6 @@
 "use client";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 import { useEffect, useState } from "react";
 import { clientApi } from "@/lib/client-api";
 import type { RecordData, FAQ } from "@/lib/api";
@@ -619,7 +621,7 @@ export function SystemPanel({ csrf }: { csrf: string }) {
         <button
           onClick={async () => {
             try {
-              const r = await fetch("/api/v1/admin/backup", {
+              const r = await fetch(`${basePath}/api/v1/admin/backup`, {
                 method: "POST",
                 headers: { "X-CSRF-Token": csrf },
               });

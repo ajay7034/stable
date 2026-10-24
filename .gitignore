@@ -14,3 +14,7 @@ __pycache__/
 
 LOCAL_ADMIN_ACCESS.txt
 frontend/pages-out/
+
+.env.production
+
+.deploy.env

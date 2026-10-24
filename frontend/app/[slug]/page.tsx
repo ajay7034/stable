@@ -1,3 +1,4 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import { QuoteList } from "@/components/quote-list";
 import { api, apiPage, RecordData, ApiError } from "@/lib/api";
 import { notFound, permanentRedirect } from "next/navigation";
@@ -100,12 +101,12 @@ export default async function Page({
                     <div className="journal-art">
                       {r.cover_id ? (
                         <img
-                          src={"/api/v1/media/" + r.cover_id}
+                          src={`${basePath}/api/v1/media/` + r.cover_id}
                           alt={r.title}
                         />
                       ) : i % 3 === 0 ? (
                         <Image
-                          src="/images/architecture.webp"
+                          src={`${basePath}/images/architecture.webp`}
                           fill
                           sizes="(max-width:600px) 88vw, 30vw"
                           alt="Architectural concept"
@@ -197,7 +198,7 @@ export default async function Page({
         <section className="intro section-wrap">
           <div className="intro-image">
             <Image
-              src="/images/architecture.webp"
+              src={`${basePath}/images/architecture.webp`}
               fill
               sizes="(max-width:600px) 88vw, 42vw"
               alt="Conceptual architectural materials and light"

@@ -507,7 +507,7 @@ button:not(.icon-button, .nav-link, .mobile-trigger, .menu-dismiss):hover {
 .material-sprite {
   height: 100%;
   width: 100%;
-  background-image: url("/images/materials.webp");
+  background-image: url("../public/images/materials.webp");
   background-size: 400% 200%;
   background-repeat: no-repeat;
   transition: transform 0.6s;

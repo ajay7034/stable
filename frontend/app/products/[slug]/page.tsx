@@ -1,3 +1,4 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import { api, RecordData, ApiError } from "@/lib/api";
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
@@ -108,7 +109,7 @@ export default async function Product({
             <p style={{ marginTop: 22 }}>
               <a
                 className="text-link"
-                href={"/api/v1/documents/" + p.datasheet.id}
+                href={`${basePath}/api/v1/documents/` + p.datasheet.id}
               >
                 <Download size={16} />
                 Download datasheet

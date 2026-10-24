@@ -1,3 +1,4 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export async function clientApi<T = unknown>(
   path: string,
   csrf = "",
@@ -5,7 +6,7 @@ export async function clientApi<T = unknown>(
   data?: unknown,
 ): Promise<T> {
   const form = data instanceof FormData;
-  const response = await fetch("/api/v1/" + path, {
+  const response = await fetch(`${basePath}/api/v1/` + path, {
     method,
     headers: {
       ...(form ? {} : { "Content-Type": "application/json" }),

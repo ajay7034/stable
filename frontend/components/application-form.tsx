@@ -1,4 +1,6 @@
 "use client";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 import { useState } from "react";
 export function ApplicationForm({ job }: { job: number }) {
   const [notice, setNotice] = useState(""),
@@ -11,7 +13,7 @@ export function ApplicationForm({ job }: { job: number }) {
         const form = e.currentTarget;
         setBusy(true);
         try {
-          const r = await fetch("/api/v1/apply/" + job, {
+          const r = await fetch(`${basePath}/api/v1/apply/` + job, {
             method: "POST",
             body: new FormData(form),
           });
