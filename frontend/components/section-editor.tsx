@@ -1,4 +1,6 @@
 "use client";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 import { useEffect, useState } from "react";
 type Section = {
   kind: string;
@@ -24,7 +26,7 @@ export function SectionEditor({
       { id: number; content: string; created_at: string }[]
     >([]);
   useEffect(() => {
-    fetch("/api/v1/admin/sections/" + page)
+    fetch(`${basePath}/api/v1/admin/sections/` + page)
       .then(async (r) => {
         if (!r.ok) throw Error("Unable to load sections");
         setSections((await r.json()).data);
@@ -48,7 +50,7 @@ export function SectionEditor({
         onClick={async () => {
           try {
             const r = await fetch(
-              "/api/v1/admin/versions/page_sections/" + page,
+              `${basePath}/api/v1/admin/versions/page_sections/` + page,
             );
             if (!r.ok) throw Error("Unable to load revisions");
             setVersions((await r.json()).data);
@@ -185,7 +187,7 @@ export function SectionEditor({
       <button
         type="button"
         onClick={async () => {
-          const r = await fetch("/api/v1/admin/sections/" + page, {
+          const r = await fetch(`${basePath}/api/v1/admin/sections/` + page, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
