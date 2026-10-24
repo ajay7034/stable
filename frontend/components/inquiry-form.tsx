@@ -1,4 +1,6 @@
 "use client";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -52,7 +54,7 @@ export function InquiryForm({
           const form = new FormData();
           form.append("payload", JSON.stringify(payload));
           if (attachment) form.append("attachment", attachment);
-          const r = await fetch("/api/v1/" + type, {
+          const r = await fetch(`${basePath}/api/v1/` + type, {
             method: "POST",
             headers: attachment
               ? undefined
