@@ -10,7 +10,7 @@ The Pages site address is `https://ajay7034.github.io/stable/`.
 ## One-time GitHub setting
 In the repository's **Settings → Pages**, choose **Deploy from a branch**, then **gh-pages** and **/(root)**, and save. Repository administrator permissions are required. Publishing generated files to a branch alone does not prove that Pages is enabled.
 
-The **Publish GitHub Pages** workflow builds on pushes to `main`, initializes only the verified public seed content in a temporary database, renders the public website, downloads public assets and publishes the result to `gh-pages`. The workflow preserves publication history and does not force-push. Its build database is disposable; it is not a hosted CMS database. Changes made in a local CMS are not automatically committed or included in future workflow builds. Update versioned seed content/assets or deploy the full backend for ongoing CMS editing.
+The **Publish GitHub Pages** workflow builds on pushes to `main`, initializes only the verified public seed content in a temporary database, renders the public website, downloads public assets and publishes the result to `gh-pages`. The workflow preserves publication history and does not force-push. It explicitly requests a Pages build after publishing, because commits made with the workflow token do not themselves trigger a Pages build. The first run can report a Pages API error until the one-time Pages setting is enabled. Its build database is disposable; it is not a hosted CMS database. Changes made in a local CMS are not automatically committed or included in future workflow builds. Update versioned seed content/assets or deploy the full backend for ongoing CMS editing.
 
 ## Local preview and publishing
 With the full application running on port 3000:
