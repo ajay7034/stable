@@ -1,4 +1,6 @@
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+import { PageHero } from "@/components/page-hero";
+import { Reveal } from "@/components/reveal";
 import { QuoteList } from "@/components/quote-list";
 import { api, apiPage, RecordData, ApiError } from "@/lib/api";
 import { notFound, permanentRedirect } from "next/navigation";
@@ -11,6 +13,7 @@ import {
   Phone,
   Mail,
   Search,
+  Check,
 } from "lucide-react";
 import { InquiryForm } from "@/components/inquiry-form";
 import { Breadcrumbs, FAQs } from "@/components/seo-blocks";
@@ -56,7 +59,7 @@ export default async function Page({
     );
     return (
       <>
-        <section className="page-hero">
+        <PageHero variant={slug === "blogs" ? "materials" : "architecture"}>
           <Breadcrumbs
             items={[{ name: slug === "blogs" ? "Journal" : "Careers" }]}
           />
@@ -71,7 +74,7 @@ export default async function Page({
               ? "Practical thoughts on materials, planning and the details that bring a project together."
               : "Explore opportunities to become part of the Stable team in Ajman."}
           </p>
-        </section>
+        </PageHero>
         <section className="page">
           {slug === "blogs" && (
             <form className="filters">
@@ -189,13 +192,14 @@ export default async function Page({
   if (slug === "about")
     return (
       <>
-        <section className="page-hero">
+        <PageHero variant="architecture">
           <Breadcrumbs items={[{ name: "About Stable" }]} />
           <p className="eyebrow">{s.about_eyebrow}</p>
           <h1>{s.about_heading || page.title}</h1>
           <p>{page.description}</p>
-        </section>
-        <section className="intro section-wrap">
+        </PageHero>
+        <Reveal>
+        <section className="intro section-wrap about-intro">
           <div className="intro-image">
             <Image
               src={`${basePath}/images/architecture.webp`}
@@ -212,12 +216,34 @@ export default async function Page({
             <p className="eyebrow">STABLE BUILDING MATERIALS TRADING LLC</p>
             <h2>{page.title}</h2>
             <RichText value={page.body || ""} />
+            <div className="about-support">
+              <p className="eyebrow">PRACTICAL SUPPORT, PERSONAL ATTENTION</p>
+              <ul>
+                <li><Check size={17} /><span><strong>Wholesale & retail enquiries</strong>For contractors, businesses and customers planning their next project.</span></li>
+                <li><Check size={17} /><span><strong>Construction to finishing</strong>Discuss materials for the foundations, services and finishing details.</span></li>
+                <li><Check size={17} /><span><strong>Clear next steps</strong>Specifications, pricing and availability confirmed for your enquiry.</span></li>
+              </ul>
+            </div>
             <Link className="text-link" href="/products">
               Explore our materials
               <ArrowUpRight size={16} />
             </Link>
           </div>
         </section>
+        </Reveal>
+        <Reveal>
+          <section className="section-wrap about-process">
+            <div className="section-heading">
+              <div><p className="eyebrow">A SIMPLE WAY FORWARD</p><h2>From your list to<br />a clearer next step.</h2></div>
+              <p>Whether you are preparing a construction requirement or choosing the finishing details, start with a conversation about what your project needs.</p>
+            </div>
+            <div className="about-process-grid">
+              <article className="about-step"><span>01</span><h3>Share your requirements.</h3><p>Send your material list or bill of quantities, with the dimensions, quantities and finish you have in mind.</p></article>
+              <article className="about-step"><span>02</span><h3>Talk through the details.</h3><p>Discuss the intended application and your required date so the team can understand the scope of your enquiry.</p></article>
+              <article className="about-step"><span>03</span><h3>Confirm your next step.</h3><p>Review the specifications, pricing and available options with the team before deciding how to proceed.</p></article>
+            </div>
+          </section>
+        </Reveal>
         {s.display_director === "1" && (
           <section className="section-wrap values-section">
             <p className="eyebrow">OUR LEADERSHIP</p>
@@ -231,8 +257,9 @@ export default async function Page({
             )}
           </section>
         )}
-        <section className="procurement section-wrap">
-          <div>
+        <Reveal>
+        <section className="procurement section-wrap about-procurement">
+          <div className="procurement-content">
             <p className="eyebrow">ALWAYS TRUSTED</p>
             <h2>
               Tell us where
@@ -244,25 +271,23 @@ export default async function Page({
               finishing requirements.
             </p>
           </div>
-          <Link
-            className="button"
-            style={{ justifySelf: "start" }}
-            href="/contact"
-          >
-            Start a conversation
-            <ArrowUpRight size={17} />
-          </Link>
+          <div className="about-enquiry-card">
+            <p className="eyebrow">BRING YOUR MATERIAL LIST</p>
+            <h3>A useful starting point.</h3>
+            <p>A few details help us understand what you need.</p>
+            <ul><li>Material type and intended application</li><li>Dimensions, finish and quantities</li><li>Your required date and project location</li></ul>
+            <Link className="button" href="/contact">Start a conversation<ArrowUpRight size={17} /></Link>
+          </div>
         </section>
-        <section className="page">
-          <FAQs items={page.faqs || []} />
-        </section>
+        </Reveal>
+        {!!page.faqs?.length && <section className="page"><FAQs items={page.faqs} /></section>}
       </>
     );
   if (slug === "contact" || slug === "request-quote") {
     const quote = slug === "request-quote";
     return (
       <div className={quote ? "quote-page" : ""}>
-        <section className="page-hero">
+        <PageHero variant="planning">
           <Breadcrumbs
             items={[{ name: quote ? "Request a quote" : "Contact" }]}
           />
@@ -271,7 +296,7 @@ export default async function Page({
           </p>
           <h1>{quote ? s.quote_heading : s.contact_heading}</h1>
           <p>{page.description}</p>
-        </section>
+        </PageHero>
         <div className="contact-grid">
           <aside className="contact-details">
             {quote ? (
@@ -358,13 +383,9 @@ export default async function Page({
     );
   }
   return (
-    <section className="page">
-      <Breadcrumbs items={[{ name: page.title }]} />
-      <p className="eyebrow">STABLE / INFORMATION</p>
-      <h1>{page.title}</h1>
-      <p>{page.description}</p>
-      <RichText value={page.body || ""} />
-      <FAQs items={page.faqs || []} />
-    </section>
+    <>
+      <PageHero><Breadcrumbs items={[{ name: page.title }]} /><p className="eyebrow">STABLE / INFORMATION</p><h1>{page.title}</h1><p>{page.description}</p></PageHero>
+      <section className="page"><RichText value={page.body || ""} /><FAQs items={page.faqs || []} /></section>
+    </>
   );
 }

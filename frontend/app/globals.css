@@ -2896,3 +2896,52 @@ pre {
   .preloader-line > span { transform: none; }
 }
 @media print { .page-preloader { display: none; } }
+
+/* Inner pages share the homepage's navy, stone and warm-gold visual language. */
+.page-hero.inner-hero { position: relative; isolation: isolate; overflow: hidden; min-height: 430px; display: flex; align-items: center; padding: 58px 7% 66px; color: #fff; background: var(--midnight); border: 0; }
+.inner-hero-background, .inner-hero-shade { position: absolute; inset: 0; z-index: -1; }
+.inner-hero-background img { object-fit: cover; object-position: center 54%; animation: inner-hero-drift 9s ease-out both; }
+.inner-hero-shade { background: linear-gradient(90deg,#091e2bf5 0%,#0d2534d9 38%,#112a3660 73%,#112a3620),linear-gradient(0deg,#0b202c60,transparent 65%); }
+.inner-hero-content { width: 100%; max-width: 1200px; position: relative; }
+.inner-hero-content h1 { max-width: 850px; color: #fff; font-size: clamp(40px,5.2vw,74px); line-height: 1.1; font-weight: 400; letter-spacing: -2.7px; margin: 22px 0; overflow-wrap: anywhere; }
+.inner-hero-content > p:not(.eyebrow) { max-width: 595px; color: #d8e0e3; font-size: 13px; line-height: 1.9; margin-bottom: 0; }
+.inner-hero-content .eyebrow { color: #e3c566; }
+.inner-hero-content .breadcrumb { color: #ccd6db; font-size: 10px; flex-wrap: wrap; margin-bottom: 29px; line-height: 1.8; }
+.inner-hero-content .breadcrumb a:hover { color: #f1d372; }
+.inner-hero-content .article-meta-large { color: #d8e0e3; border-color: #ffffff30; }
+.inner-hero-signature { position: absolute; right: 26px; top: 45%; writing-mode: vertical-rl; color: #e3e9eacc; font-size: 7px; letter-spacing: 2.8px; }
+@keyframes inner-hero-drift { from { transform: scale(1.065); } to { transform: scale(1); } }
+.about-support { padding-top: 25px; margin: 22px 0 27px; border-top: 1px solid var(--line); }
+.about-support ul { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 19px; }
+.about-support li { display: flex; gap: 13px; align-items: flex-start; font-size: 12px; line-height: 1.8; color: var(--muted); }
+.about-support li svg { color: #97772a; flex-shrink: 0; margin-top: 3px; }
+.about-support strong { display: block; color: var(--ink); font-size: 13px; margin-bottom: 3px; font-weight: 600; }
+.about-intro .intro-image { align-self: stretch; min-height: 510px; }
+.about-process { border-top: 1px solid var(--line); background: #eeefea; }
+.about-process .section-heading > p { max-width: 380px; font-size: 13px; }
+.about-process-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 30px; margin-top: 40px; }
+.about-step { border-top: 1px solid #bcc4bd; padding-top: 23px; }
+.about-step > span { display: block; color: #967829; font-size: 12px; letter-spacing: 2px; margin-bottom: 22px; }
+.about-step h3 { font-size: 23px; max-width: 260px; margin-bottom: 15px; font-weight: 400; }
+.about-step p { font-size: 12px; line-height: 1.9; max-width: 320px; }
+.about-procurement { gap: 65px; align-items: center; }
+.about-enquiry-card { width: 100%; padding: 34px; border: 1px solid #ffffff25; background: #ffffff05; position: relative; z-index: 1; }
+.about-enquiry-card h3 { color: #f4f4ef; font-size: 27px; font-weight: 400; margin: 14px 0; }
+.about-enquiry-card > p:not(.eyebrow) { font-size: 12px; }
+.about-enquiry-card ul { padding-left: 17px; color: #d4dddf; font-size: 12px; line-height: 2.3; margin: 20px 0 26px; }
+@media (max-width: 760px) {
+  .page-hero.inner-hero { min-height: 370px; padding: 42px 6% 48px; }
+  .inner-hero-content h1 { font-size: clamp(35px,8vw,52px); letter-spacing: -1.5px; max-width: 610px; margin: 20px 0; }
+  .inner-hero-background img { object-position: 64% center; }
+  .inner-hero-shade { background: linear-gradient(90deg,#091e2be8,#0d2534a6 65%,#112a3660); }
+  .inner-hero-signature { display: none; }
+  .inner-hero-content .breadcrumb { font-size: 9px; margin-bottom: 24px; }
+  .inner-hero-content > p:not(.eyebrow) { font-size: 12px; }
+  .about-intro .intro-image { min-height: 340px; }
+  .about-process-grid { grid-template-columns: 1fr; gap: 26px; margin-top: 25px; }
+  .about-step h3, .about-step p { max-width: none; }
+  .about-step > span { margin-bottom: 12px; }
+  .about-procurement { gap: 30px; }
+  .about-enquiry-card { padding: 25px; }
+}
+@media (prefers-reduced-motion: reduce) { .inner-hero-background img { transform: none; } }

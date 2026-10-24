@@ -11,3 +11,5 @@ Uploaded future photographs require their own source, owner and licence informat
 The logo background was removed with image editing at the user’s request. `logo-transparent.png` is the transparent website asset; `logo.png` and the favicon also use the transparent version.
 
 - `frontend/public/images/hero-architecture-v2.jpg`: generated with OpenAI image generation on 2026-10-24, optimized to JPEG for the second hero slide. Illustrative contemporary Gulf limestone architecture; it does not depict Stable premises or a completed customer project.
+
+- `hero-about.jpg`, `hero-journal.jpg`, and `hero-planning.jpg` in `frontend/public/images/`: generated with OpenAI image generation on 2026-10-25 and optimized to JPEG. Conceptual Gulf architecture, generic stone/ceramic/metal samples, and an architectural planning still life. These decorative inner-page backgrounds do not depict company premises, confirmed inventory or completed customer projects.

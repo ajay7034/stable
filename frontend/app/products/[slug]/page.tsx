@@ -1,3 +1,4 @@
+import { PageHero } from "@/components/page-hero";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import { api, RecordData, ApiError } from "@/lib/api";
 import { notFound, permanentRedirect } from "next/navigation";
@@ -47,7 +48,8 @@ export default async function Product({
   );
   const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   return (
-    <section className="page">
+    <>
+    <PageHero variant="materials">
       <Breadcrumbs
         items={[
           { name: "Materials", href: "/products" },
@@ -57,6 +59,9 @@ export default async function Product({
           { name: p.title },
         ]}
       />
+      <p className="eyebrow">{c?.title || "STABLE MATERIALS"}</p><h1>{p.title}</h1><p>{p.description}</p>
+    </PageHero>
+    <section className="page">
       <div className="product-layout">
         <ProductGallery
           title={p.title}
@@ -65,8 +70,7 @@ export default async function Product({
         />
         <div>
           <p className="eyebrow">{c?.title || "STABLE MATERIALS"}</p>
-          <h1>{p.title}</h1>
-          <p>{p.description}</p>
+          <h2>Material details.</h2>
           {p.product_code && (
             <p className="article-meta">REFERENCE: {p.product_code}</p>
           )}
@@ -190,5 +194,6 @@ export default async function Product({
         }}
       />
     </section>
+    </>
   );
 }

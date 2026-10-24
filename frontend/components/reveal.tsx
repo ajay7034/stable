@@ -10,12 +10,12 @@ export function Reveal({ children }: { children: React.ReactNode }) {
     // Observe individual pieces, including cards below the first row, rather than
     // revealing an entire tall section when its first few pixels enter the screen.
     const pieces = Array.from(element.querySelectorAll<HTMLElement>(
-      ".intro-image, .intro-copy, .section-heading, .category-card, .values-grid > article, .procurement-content, .procurement-art, .journal-card",
+      ".intro-image, .intro-copy, .section-heading, .category-card, .values-grid > article, .procurement-content, .procurement-art, .journal-card, .about-step, .about-enquiry-card",
     ));
     const targets = pieces.length ? pieces : [element];
     targets.forEach((target) => {
       const siblings = target.parentElement ? Array.from(target.parentElement.children) : [];
-      const stagger = target.matches(".category-card, .values-grid > article, .journal-card") ? siblings.indexOf(target) % 4 : 0;
+      const stagger = target.matches(".category-card, .values-grid > article, .journal-card, .about-step") ? siblings.indexOf(target) % 4 : 0;
       target.style.setProperty("--reveal-delay", `${stagger * 85}ms`);
       target.classList.add("reveal-ready");
     });

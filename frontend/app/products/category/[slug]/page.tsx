@@ -1,3 +1,4 @@
+import { PageHero } from "@/components/page-hero";
 import { api, apiPage, RecordData, ApiError } from "@/lib/api";
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
@@ -41,14 +42,14 @@ export default async function Category({
   const children = all.filter((r) => r.parent_id === c.id);
   return (
     <>
-      <section className="page-hero">
+      <PageHero variant="materials">
         <Breadcrumbs
           items={[{ name: "Materials", href: "/products" }, { name: c.title }]}
         />
         <p className="eyebrow">THE STABLE MATERIALS COLLECTION</p>
         <h1>{c.title}</h1>
         <p>{c.description}</p>
-      </section>
+      </PageHero>
       <section className="page">
         <div className="product-layout">
           <div style={{ maxHeight: 470, aspectRatio: "1/1" }}>

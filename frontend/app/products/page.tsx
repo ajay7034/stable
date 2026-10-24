@@ -1,3 +1,4 @@
+import { PageHero } from "@/components/page-hero";
 import Link from "next/link";
 import { ArrowUpRight, Search } from "lucide-react";
 import { api, apiPage, RecordData } from "@/lib/api";
@@ -43,12 +44,12 @@ export default async function Products({
   );
   return (
     <>
-      <section className="page-hero">
+      <PageHero variant="materials">
         <Breadcrumbs items={[{ name: "Materials" }]} />
         <p className="eyebrow">{s.materials_eyebrow}</p>
         <h1>{s.materials_heading}</h1>
         <p>{s.materials_description}</p>
-      </section>
+      </PageHero>
       <section className="page">
         <form className="filters">
           <label>

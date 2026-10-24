@@ -1,3 +1,4 @@
+import { PageHero } from "@/components/page-hero";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import { api, RecordData, ApiError } from "@/lib/api";
 import { notFound, permanentRedirect } from "next/navigation";
@@ -38,7 +39,7 @@ export default async function Article({
     base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   return (
     <>
-      <section className="page-hero">
+      <PageHero variant="materials">
         <Breadcrumbs
           items={[{ name: "Journal", href: "/blogs" }, { name: p.title }]}
         />
@@ -50,7 +51,7 @@ export default async function Article({
           <span>{p.published_at?.slice(0, 10)}</span>
           <span>{reading} min read</span>
         </div>
-      </section>
+      </PageHero>
       <div style={{ height: 390, position: "relative", overflow: "hidden" }}>
         {p.cover_id ? (
           <img
