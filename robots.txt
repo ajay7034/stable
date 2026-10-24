@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ajay7034.github.io/stable/sitemap.xml
