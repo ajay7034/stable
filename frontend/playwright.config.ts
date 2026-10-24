@@ -4,7 +4,7 @@ export default defineConfig({
   use: {
     baseURL: process.env.TEST_BASE_URL || "http://127.0.0.1:3000",
     launchOptions: {
-      executablePath: "/usr/bin/chromium",
+      executablePath: process.env.PLAYWRIGHT_EXECUTABLE_PATH || "/usr/bin/chromium",
       args: ["--no-sandbox"],
     },
   },

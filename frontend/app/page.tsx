@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { api, RecordData } from "@/lib/api";
+import { HeroSlideshow } from "@/components/hero-slideshow";
 import { Reveal } from "@/components/reveal";
 import { MaterialVisual } from "@/components/material-visual";
 import { textContent } from "@/components/rich-text";
@@ -40,20 +41,7 @@ export default async function Home() {
   return (
     <>
       <section className="hero">
-        <Image
-          className="hero-image"
-          src={
-            page.cover_id
-              ? `${basePath}/api/v1/media/` + page.cover_id
-              : `${basePath}/images/architecture.webp`
-          }
-          unoptimized={!!page.cover_id}
-          alt="Architectural concept illustration"
-          fill
-          sizes="100vw"
-          fetchPriority="high"
-          priority
-        />
+        <HeroSlideshow coverId={page.cover_id} />
         <div className="hero-shade" />
         <div className="hero-content">
           <p className="eyebrow">
@@ -90,7 +78,7 @@ export default async function Home() {
             <ArrowDown size={18} />
           </a>
         </div>
-        <span className="hero-index">01 / STABLE</span>
+        <span className="hero-index">ALWAYS TRUSTED / STABLE</span>
       </section>
       <div className="trust-strip">
         <span>{settings.brand_theme}</span>

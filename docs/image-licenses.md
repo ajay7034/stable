@@ -9,3 +9,5 @@
 Uploaded future photographs require their own source, owner and licence information. Replace concept imagery with authorized real business photographs through the CMS when available. No photographs or branding were copied from the taxonomy reference website.
 
 The logo background was removed with image editing at the user’s request. `logo-transparent.png` is the transparent website asset; `logo.png` and the favicon also use the transparent version.
+
+- `frontend/public/images/hero-architecture-v2.jpg`: generated with OpenAI image generation on 2026-10-24, optimized to JPEG for the second hero slide. Illustrative contemporary Gulf limestone architecture; it does not depict Stable premises or a completed customer project.
