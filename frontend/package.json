@@ -33,6 +33,7 @@
     "@types/node": "^24.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "cheerio": "^1.2.0",
     "lighthouse": "^13.5.0",
     "prettier": "^3.9.10",
     "typescript": "^5.0.0"

@@ -1,0 +1,54 @@
+name: Publish GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: intl, mbstring, sqlite3, pdo_sqlite, gd, zip
+          coverage: none
+      - name: Prepare public content
+        run: |
+          cd backend
+          composer install --no-dev --no-interaction --prefer-dist
+          cp .env.example .env
+          sed -i "s|/app/backend/writable/stable.sqlite|$PWD/writable/stable.sqlite|" .env
+          sed -i 's/CI_ENVIRONMENT = production/CI_ENVIRONMENT = development/' .env
+          php spark migrate
+          php spark db:seed CompanySeeder
+          php spark db:seed DesignSeeder
+          php spark db:seed TaxonomySeeder
+          php spark serve --host 127.0.0.1 --port 8080 > /tmp/stable-api.log 2>&1 &
+      - name: Build and export public website
+        env:
+          NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+        run: |
+          curl --fail --retry 15 --retry-connrefused --retry-delay 1 http://127.0.0.1:8080/api/v1/categories > /dev/null
+          cd frontend
+          npm ci --no-audit --no-fund
+          npm run build
+          npm run start -- --port 3000 > /tmp/stable-web.log 2>&1 &
+          curl --fail --retry 15 --retry-connrefused --retry-delay 1 http://127.0.0.1:3000 > /dev/null
+          node scripts/export-pages.mjs
+      - name: Publish generated files
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          bash scripts/publish-pages.sh

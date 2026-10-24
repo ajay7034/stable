@@ -18,3 +18,7 @@ Local website: `http://localhost:3000` · Staff studio: `/admin`. No default sta
 [Desktop website](docs/screenshots/home-desktop.jpg) · [Mobile website](docs/screenshots/home-mobile.jpg) · [Content studio](docs/screenshots/studio-desktop.jpg)
 
 A local development administrator was created for this checkout. Its generated credentials are stored in the private, Git-ignored `LOCAL_ADMIN_ACCESS.txt`; change the password in My account. Seeders never install a default password. Create a separate production administrator during deployment.
+
+## GitHub Pages
+
+The public website can also be published at `https://ajay7034.github.io/stable/`. See [GitHub Pages setup](docs/github-pages.md). GitHub Pages serves the static public site; CMS/database features require full application hosting. Enquiries on Pages use email composition and direct phone/WhatsApp links.
