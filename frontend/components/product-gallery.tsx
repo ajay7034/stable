@@ -1,4 +1,6 @@
 "use client";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 import { useState } from "react";
 import { MaterialVisual } from "./material-visual";
 export function ProductGallery({
@@ -20,7 +22,7 @@ export function ProductGallery({
   return (
     <div className="product-gallery">
       <img
-        src={"/api/v1/media/" + images[selected].media_id}
+        src={`${basePath}/api/v1/media/` + images[selected].media_id}
         alt={images[selected].alt || title}
       />
       {images.length > 1 && (
@@ -33,7 +35,7 @@ export function ProductGallery({
               aria-pressed={i === selected}
             >
               <img
-                src={"/api/v1/media/" + img.media_id + "?size=thumb"}
+                src={`${basePath}/api/v1/media/` + img.media_id + "?size=thumb"}
                 alt=""
               />
             </button>
