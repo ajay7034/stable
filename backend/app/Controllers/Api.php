@@ -20,7 +20,7 @@ class Api extends ResourceController
             session_name("stable_session");
             session_set_cookie_params([
                 "lifetime" => 0,
-                "path" => "/",
+                "path" => env("STABLE_BASE_PATH", "") ?: "/",
                 "secure" => ENVIRONMENT === "production",
                 "httponly" => true,
                 "samesite" => "Strict",
