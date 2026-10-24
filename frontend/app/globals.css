@@ -2875,3 +2875,24 @@ pre {
   .hero-slide .hero-image { transform: none; }
   .hero-slide-selector[aria-pressed="true"] > span { transform: scaleX(1); }
 }
+
+/* A quiet brand signature shared by first paint and internal navigation. */
+.page-preloader { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; background: #0b202c; color: #dfbd5b; opacity: 1; visibility: visible; transition: opacity .42s ease, visibility .42s ease; }
+.page-preloader.is-leaving { opacity: 0; visibility: hidden; pointer-events: none; }
+.preloader-brand { display: flex; flex-direction: column; align-items: center; width: 220px; transform: translateY(-10px); }
+.preloader-mark { position: relative; width: 112px; height: 104px; margin-bottom: 32px; }
+.preloader-mark img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.preloader-mark-outline { opacity: .12; }
+.preloader-mark-reveal { animation: preloader-logo-reveal 1.35s cubic-bezier(.22,.61,.36,1) both; }
+.preloader-wordmark { font-family: Manrope, Arial, sans-serif; color: #f3f2ea; font-size: 20px; font-weight: 600; letter-spacing: .48em; padding-left: .48em; animation: preloader-word-reveal 1.1s ease both; }
+.preloader-caption { margin-top: 14px; color: #aab8bc; font-size: 7px; letter-spacing: .32em; animation: preloader-word-reveal 1.1s .15s ease both; }
+.preloader-line { display: block; width: 64px; height: 1px; margin-top: 32px; overflow: hidden; background: #d7b33e20; }
+.preloader-line > span { display: block; height: 100%; background: #dfbd5b; transform-origin: left; animation: preloader-line-flow 1.8s ease-in-out infinite; }
+@keyframes preloader-logo-reveal { from { clip-path: inset(100% 0 0 0); opacity: .2; transform: translateY(9px); } to { clip-path: inset(0); opacity: 1; transform: none; } }
+@keyframes preloader-word-reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes preloader-line-flow { 0% { transform: scaleX(0); } 48% { transform: scaleX(1); } 100% { transform: scaleX(0); transform-origin: right; } }
+@media (prefers-reduced-motion: reduce) {
+  .preloader-mark-reveal, .preloader-wordmark, .preloader-caption { opacity: 1; clip-path: none; transform: none; }
+  .preloader-line > span { transform: none; }
+}
+@media print { .page-preloader { display: none; } }

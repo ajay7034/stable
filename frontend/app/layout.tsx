@@ -3,6 +3,7 @@ import "@fontsource/manrope/latin-600.css";
 import "@fontsource/inter/latin-400.css";
 import "./globals.css";
 import { api, RecordData } from "@/lib/api";
+import { PagePreloader } from "@/components/page-preloader";
 import { SiteShell } from "@/components/site-shell";
 import type { Metadata } from "next";
 export const metadata: Metadata = {
@@ -52,12 +53,15 @@ export default async function Layout({
   return (
     <html lang="en">
       <body>
+        <PagePreloader />
+        <noscript><style>{".page-preloader{display:none!important}"}</style></noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
           }}
         />
+        <div id="site-content">
         <SiteShell
           settings={s}
           categories={categories}
@@ -68,6 +72,7 @@ export default async function Layout({
         >
           {children}
         </SiteShell>
+        </div>
       </body>
     </html>
   );
