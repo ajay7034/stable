@@ -1,4 +1,6 @@
 "use client";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 import { useEffect, useState } from "react";
 type User = {
   id: number;
@@ -12,7 +14,7 @@ export function StaffManager({ csrf }: { csrf: string }) {
     [edit, setEdit] = useState<User | null>(null),
     [notice, setNotice] = useState("");
   async function load() {
-    const r = await fetch("/api/v1/admin/users");
+    const r = await fetch(`${basePath}/api/v1/admin/users`);
     if (!r.ok) throw Error("Super administrator access required");
     setUsers((await r.json()).data);
   }
@@ -39,7 +41,7 @@ export function StaffManager({ csrf }: { csrf: string }) {
           onSubmit={async (e) => {
             e.preventDefault();
             const r = await fetch(
-              "/api/v1/admin/users" + (edit.id ? "/" + edit.id : ""),
+              `${basePath}/api/v1/admin/users` + (edit.id ? "/" + edit.id : ""),
               {
                 method: edit.id ? "PUT" : "POST",
                 headers: {
