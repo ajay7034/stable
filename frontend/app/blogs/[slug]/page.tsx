@@ -1,3 +1,4 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import { api, RecordData, ApiError } from "@/lib/api";
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
@@ -54,12 +55,12 @@ export default async function Article({
         {p.cover_id ? (
           <img
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            src={"/api/v1/media/" + p.cover_id}
+            src={`${basePath}/api/v1/media/` + p.cover_id}
             alt={p.title}
           />
         ) : (
           <Image
-            src="/images/architecture.webp"
+            src={`${basePath}/images/architecture.webp`}
             fill
             sizes="100vw"
             alt="Architectural concept illustrating material detail"
