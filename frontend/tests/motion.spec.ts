@@ -47,3 +47,18 @@ test("mobile hero fits the viewport and has usable controls", async ({ page }) =
   expect(size?.height).toBeGreaterThanOrEqual(44);
   await page.screenshot({ path: "test-results/motion-mobile.png", fullPage: true });
 });
+
+
+test("autoplay waits for the next image on a slow connection", async ({ page }) => {
+  let releaseImage!: () => void;
+  const imageGate = new Promise<void>((resolve) => { releaseImage = resolve; });
+  await page.route("**/*hero-architecture-v2*", async (route) => { await imageGate; await route.continue(); });
+  await page.goto(home, { waitUntil: "domcontentloaded" });
+  await expect(page.locator(".reveal-ready").first()).toBeAttached();
+  await expect(page.locator(".hero-slideshow")).toHaveAttribute("data-playing", "false");
+  await page.waitForTimeout(3500);
+  await expect(page.getByRole("button", { name: "Show architectural image 1" })).toHaveAttribute("aria-pressed", "true");
+  releaseImage();
+  await expect(page.locator(".hero-slideshow")).toHaveAttribute("data-playing", "true");
+  await expect(page.getByRole("button", { name: "Show architectural image 2" })).toHaveAttribute("aria-pressed", "true", { timeout: 6500 });
+});

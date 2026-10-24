@@ -9,12 +9,13 @@ const interval = 3200;
 export function HeroSlideshow({ coverId }: { coverId?: number | null }) {
   const root = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const [secondReady, setSecondReady] = useState(false);
   const [paused, setPaused] = useState(false);
   const [reduced, setReduced] = useState(false);
   const [inView, setInView] = useState(true);
   const [pageVisible, setPageVisible] = useState(true);
   const [interaction, setInteraction] = useState(false);
-  const playing = !paused && !reduced && inView && pageVisible && !interaction;
+  const playing = secondReady && !paused && !reduced && inView && pageVisible && !interaction;
 
   useEffect(() => {
     const preference = matchMedia("(prefers-reduced-motion: reduce)");
@@ -49,7 +50,7 @@ export function HeroSlideshow({ coverId }: { coverId?: number | null }) {
       <div className="hero-slides" aria-live="off">
         {slides.map((slide, index) => (
           <div key={slide.src} className={`hero-slide${active === index ? " is-active" : ""}`} aria-hidden={active !== index}>
-            <Image className="hero-image" src={slide.src} alt={slide.alt} fill sizes="100vw" unoptimized={index === 0 && !!coverId} preload={index === 0} loading={index === 0 ? undefined : "eager"} />
+            <Image className="hero-image" src={slide.src} alt={slide.alt} fill sizes="100vw" onLoad={() => { if (index === 1) setSecondReady(true); }} unoptimized={index === 0 && !!coverId} preload={index === 0} loading={index === 0 ? undefined : "eager"} />
           </div>
         ))}
       </div>
@@ -57,7 +58,7 @@ export function HeroSlideshow({ coverId }: { coverId?: number | null }) {
         <span className="hero-slide-count" aria-live="off">0{active + 1}<span> / 02</span></span>
         <div className="hero-slide-selectors">
           {slides.map((slide, index) => (
-            <button key={slide.src} type="button" className="hero-slide-selector" aria-label={`Show architectural image ${index + 1}`} aria-pressed={active === index} onClick={() => setActive(index)}><span key={`${active}-${index}`} /></button>
+            <button key={slide.src} type="button" className="hero-slide-selector" aria-label={`Show architectural image ${index + 1}`} aria-pressed={active === index} disabled={index === 1 && !secondReady} onClick={() => setActive(index)}><span key={`${active}-${index}`} /></button>
           ))}
         </div>
         <button type="button" className="hero-slider-toggle" onClick={() => setPaused((value) => !value)} aria-label={paused ? "Play background slideshow" : "Pause background slideshow"} disabled={reduced}>
