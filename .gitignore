@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.env
+.env.local
+vendor/
+backend/writable/*
+!backend/writable/.gitkeep
+test-results/
+playwright-report/
+
+__pycache__/
+*.pyc
+*.tsbuildinfo
+
+LOCAL_ADMIN_ACCESS.txt

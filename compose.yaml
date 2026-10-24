@@ -1,0 +1,12 @@
+services:
+  api:
+    image: stable-api
+    build:
+      context: .
+      dockerfile: Dockerfile.php
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - .:/app
+    environment:
+      CI_ENVIRONMENT: development

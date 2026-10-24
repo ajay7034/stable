@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-24T16:49:35.663Z",
+  "url": "http://127.0.0.1:3000/",
+  "mode": "Lighthouse mobile simulated throttling; local production build",
+  "scores": {
+    "performance": 85,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "metrics": {
+    "first-contentful-paint": "1.3 s",
+    "largest-contentful-paint": "4.0 s",
+    "total-blocking-time": "150 ms",
+    "cumulative-layout-shift": "0.002"
+  }
+}

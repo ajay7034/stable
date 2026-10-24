@@ -1,0 +1,1005 @@
+You are a senior full-stack architect, award-winning UI/UX designer, creative frontend developer, SEO specialist, and security-focused backend engineer.
+
+PROJECT:
+Build a complete, production-ready, premium corporate building materials website and custom CMS for STABLE BUILDING MATERIALS TRADING LLC, based in Ajman, United Arab Emirates.
+
+This is a REAL company website, not a template mockup. Implement working features, a real content management system, database persistence, secure admin authentication, functional contact and quotation forms, image management, SEO, and responsive design.
+
+TECHNOLOGY (MANDATORY)
+- Frontend: Next.js with App Router, TypeScript, React
+- Styling: Tailwind CSS
+- UI: shadcn/ui primitives, Radix where appropriate, Lucide icons
+- Motion: Framer Motion / Motion for React; GSAP only where a compelling effect requires it
+- Backend: PHP CodeIgniter 4 REST API
+- Database: SQLite (single writable database managed only by PHP)
+- Query builder and migrations: CodeIgniter 4
+- Validation: Zod for frontend, CodeIgniter validation for backend
+- Forms: React Hook Form
+- SEO: Next.js Metadata API, server-rendered public content, structured data
+- Images: Next.js Image when suitable; optimized web formats
+- Admin: Custom-designed CMS within Next.js under /admin
+- Deployment: compatible with an aaPanel-managed Ubuntu VPS, reverse proxy to Next.js Node server and PHP backend
+- No WordPress, no Laravel, no Firebase, no Supabase, no MySQL.
+
+IMPORTANT EXECUTION RULES
+1. Inspect the existing repository before making changes. If empty, initialize the project.
+2. Create the complete working application, not just a design or sample components.
+3. Work in logical phases, but continue implementation through deployment documentation and testing.
+4. Avoid unnecessarily asking questions. Use the factual company details below; leave unknown business claims editable and unpublished.
+5. Do not invent company history, completed projects, certifications, awards, supplier relationships, prices, stock levels, testimonials, or branches.
+6. Do not reuse copyrighted website copy or images from the reference company.
+7. Keep the frontend and backend well organized and production-ready.
+8. All important public website sections must use CMS-managed data, not hardcoded JSX copy.
+9. Every CRUD button, form, search, filter, upload, and public CTA must function.
+10. Test desktop, tablet, and mobile layouts thoroughly.
+
+COMPANY IDENTITY — USE EXACTLY
+Official company name: STABLE BUILDING MATERIALS TRADING LLC
+Location: Shop No. 2, Elegant Building, Al Jurf Industrial Area 2, Ajman, UAE
+Company contact: +971 52 546 3574
+Managing Director: Abdul Nasar
+Managing Director direct contact: +971 50 569 8227
+Email: Stableuae2025@yahoo.com
+
+The attached ABDUL NASAR.pdf is the source for company details and initial content.
+The attached logo.pdf contains the company's actual logo.
+
+Extract the company logo faithfully from logo.pdf, preserving proportions, design, and colors. Use a clean transparent-background version if extractable without altering its design. Derive favicon and app icons from the original logo. Never substitute a generic logo.
+
+Use the company phone as the default public contact and WhatsApp number unless changed through CMS. Keep the Managing Director's direct phone optional for display through CMS rather than publishing it everywhere.
+
+INITIAL COMPANY DESCRIPTION
+Stable Building Materials Trading LLC is a building materials supplier in Ajman, UAE, offering a range of materials for contractors, builders, businesses, and retail customers. The company focuses on trustworthy service, quality materials, wholesale and retail supply, and support for construction requirements.
+
+Brand theme: Always Trusted.
+Tone: premium, trustworthy, confident, professional, clear, human.
+Do not claim the company was established in a particular year unless verified.
+
+REFERENCE MATERIALS WEBSITE
+https://www.mediatrdg.com
+https://mediatrdg.com/products
+
+Use this website strictly as a RESEARCH REFERENCE for general building materials categories, product families, and useful category taxonomy.
+
+VERY IMPORTANT:
+The reference website represents a different company.
+DO NOT copy its:
+- company name or group name
+- logos or branded imagery
+- company photographs
+- phone numbers
+- email addresses
+- addresses or branches
+- company history or establishment date
+- employee names or management
+- testimonials, reviews, certifications, client lists
+- claims about inventory, service coverage, delivery, or partnerships
+- exact wording, article copy, layouts, theme, or source code.
+
+Do not create any visible association between Stable and Media Trading.
+
+Research product categories and terminology, then write ORIGINAL descriptions for Stable. Category references are not proof that Stable currently stocks every product. Mark expanded product entries as drafts/pending verification if they go beyond the eight categories expressly identified in the company profile.
+
+IMAGE RESEARCH
+Find appropriate, premium-quality photographs for:
+- construction sites and architecture
+- building materials
+- tools and hardware
+- electrical fittings
+- plumbing products
+- sanitary ware
+- tiles and ceramics
+- cement and masonry
+- waterproofing materials
+- warehouses and material displays
+
+Use Google Images or image search as a discovery method only. Do not assume images on Google are free to use.
+Prefer appropriately licensed images from Unsplash, Pexels, Pixabay, manufacturers with permission, or other authorized sources.
+Record source URL, photographer/owner, license information, and attribution requirements in the media database.
+Download only images where the license permits website use.
+Do not hotlink Google image-result URLs.
+Do not use competitor premises, staff, branding, or watermarked photographs.
+Optimize approved imagery into local WebP/AVIF assets when appropriate.
+Use graceful placeholders where suitable images cannot legally be sourced.
+
+VISUAL ART DIRECTION — HIGH PRIORITY
+
+Build a premium corporate identity, visually better executed and more modern than the reference website, without copying its style.
+
+Palette:
+Deep architectural navy: #122B39
+Midnight navy: #0B1F2B
+Warm gold: #D6AC26
+Soft gold: #E8C94C
+Ivory: #F7F5F0
+White: #FFFFFF
+Charcoal: #202B33
+Soft gray: #EFF2F3
+
+Derive final colors from the supplied logo where possible.
+Use navy for authority, gold for distinctive accents, ivory/white for content readability.
+
+Typography:
+- Modern premium display font such as Manrope or Plus Jakarta Sans
+- Highly legible body font such as Inter
+- Strong, deliberately crafted heading hierarchy
+- Editorial typographic compositions
+- Responsive fluid typography using clamp()
+- Excellent readability and contrast
+
+DESIGN QUALITY
+- Bespoke, sophisticated presentation
+- Carefully balanced whitespace
+- Large premium architectural photography
+- Elegant overlays and subtle gradients
+- Asymmetric editorial compositions
+- Beautiful image cropping
+- Refined borders and hover effects
+- Distinctive category cards
+- Premium mega navigation
+- Smooth but restrained transitions
+- No childish animation, excessive glassmorphism, neon gradients, or generic SaaS-dashboard styling on the public site
+- No excessive rounded corners everywhere
+- No visually cluttered homepage
+- No generic stock-template appearance
+- Keep pages readable and fast
+
+MOTION DIRECTION
+Use scroll-triggered reveals, sophisticated stagger effects, subtle parallax, elegant image zoom, hover transitions, animated highlights, and smooth page transitions where technically safe.
+Honor prefers-reduced-motion.
+Avoid animation-induced layout shifts and heavy effects on budget mobile devices.
+Maintain smooth rendering at practical device refresh rates.
+
+PUBLIC WEBSITE PAGES
+
+1. HOME — /
+Sections:
+A. Header
+- Utility bar with contact/WhatsApp/email
+- Sticky translucent navigation that changes appropriately on scroll
+- Logo
+- Home, About, Products, Blog, Careers, Contact
+- Products mega menu with categories and subcategories
+- Distinctive Request a Quote CTA
+- Mobile full-screen navigation
+- Accessible keyboard and focus behavior
+
+B. Hero
+- Full-width architectural/construction photography
+- Atmospheric but readable navy gradient
+- Premium editorial headline such as:
+  "Built on Trust. Ready for Every Project."
+- Supporting copy that accurately describes Stable
+- Primary button: Explore Materials
+- Secondary button: Request a Quote
+- Tasteful animated headline entrance
+- Subtle visual movement/parallax
+- Strong mobile art direction
+- Optional understated vertical scroll indicator
+
+C. Brand introduction
+- Creative split layout
+- Company overview text managed by CMS
+- Wholesale and retail positioning
+- Link to About Us
+
+D. Featured Categories
+- Editorial image cards
+- Featured 6–8 categories
+- Premium hover effects
+- Category links
+- Fully driven by CMS
+
+E. What We Supply
+- Category/product showcase
+- Well-designed responsive grid
+- Filter or tab interface if useful
+- Link to full catalogue
+
+F. Why Choose Stable
+Use careful, substantiated themes:
+- Wholesale and retail enquiries
+- Building materials selection
+- Customer-focused assistance
+- Construction material requirements
+Do not invent delivery guarantees or quantified performance.
+
+G. Project Procurement CTA
+- Send a BOQ or material list
+- Request pricing and availability
+- Prominent WhatsApp and RFQ buttons
+
+H. Our Approach
+- Trust
+- Service
+- Quality-focused material selection
+Use editable content, not invented achievements.
+
+I. Blog Preview
+- Three latest published posts
+- Responsive cards
+
+J. Contact CTA
+- Location and contact information
+- WhatsApp button
+- Inquiry form shortcut
+
+K. Footer
+- Original logo
+- Company description
+- Product categories
+- Page links
+- Contact information
+- Social media icons only when URLs exist
+- Legal links
+- Copyright dynamic year
+
+2. PRODUCTS — /products
+- Main banner
+- Full catalogue overview
+- Categories with photographs
+- Search
+- Category/subcategory filters
+- Optional application filters
+- Sort by name / featured / newest
+- Responsive grid
+- Optional pagination or load more
+- Empty state, loading state, graceful API errors
+- Quick enquiry option
+- Clean shareable URLs
+
+3. CATEGORY PAGE — /products/category/[slug]
+- Category-specific hero
+- Introduction, applications, product families
+- Category images
+- Subcategory listing
+- Product cards
+- Related categories
+- FAQs managed via CMS
+- Dedicated quote CTA
+- SEO content with original writing
+- Breadcrumbs and schema
+
+4. PRODUCT DETAIL — /products/[slug]
+Each product supports:
+- Product title
+- Slug and internal product code
+- Category/subcategory
+- Main product photograph
+- Multiple gallery images
+- Short and long description
+- Product features
+- Applications
+- Technical specifications key/value
+- Sizes and variants
+- Units where applicable
+- Datasheet PDF upload
+- Related products
+- Availability status controlled by CMS
+- Featured/new flag
+- Search keywords
+- Metadata, OG image, canonical URL
+- Request Quote
+- Add to Quote List
+- WhatsApp enquiry with prefilled product name/code
+No public price unless admin explicitly enables it.
+No checkout/payment implementation unless later requested.
+
+5. ABOUT — /about
+- Premium introductory hero
+- Genuine company story based only on supplied facts
+- Mission and values
+- Wholesale and retail positioning
+- Product supply overview
+- Company approach
+- Managing Director optional profile
+- Correct contact details
+- Professional photography without misrepresenting other companies as Stable
+- Strong enquiry CTA
+- No fake timeline, statistics or awards
+
+6. BLOG — /blogs
+- Editorial blog listing
+- Featured article
+- Category filters
+- Search
+- Pagination
+- Rich post cards
+- SEO pagination and metadata
+
+7. BLOG ARTICLE — /blogs/[slug]
+- Cover image
+- Title, summary, author, publication date
+- Rich-text content
+- Table of contents
+- Correct heading structure
+- Reading time
+- Share links
+- Related articles
+- Helpful FAQ where appropriate
+- Article structured data
+- Draft/scheduled/published status
+
+8. CONTACT — /contact
+- Contact details
+- Address
+- Embedded map with verified location or configurable Google Maps URL
+- WhatsApp, phone, email
+- Working contact form
+- Subject, name, phone, email, message
+- Success/error states
+- Server-side validation
+- Anti-spam measures
+- Privacy acknowledgement when appropriate
+- Store inquiries in SQLite
+- Optional configured email notification
+
+9. CAREERS — /careers
+- Careers landing introduction
+- CMS-managed job openings
+- Department, location, employment type
+- Job detail page at /careers/[slug]
+- Application form
+- Optional CV PDF/DOC/DOCX upload
+- Secure attachment validation and storage
+- Admin review status
+- Show professional "No Current Openings" state if empty
+- Do not invent vacancies
+
+10. REQUEST QUOTE — /request-quote
+- Full dedicated RFQ page
+- Name, company, phone, email, location
+- Material list and quantities
+- Product/category selections
+- Optional BOQ attachment
+- Additional requirements
+- Required date optional
+- Quote List prepopulation from product pages
+- WhatsApp alternative
+- Store submissions in SQLite
+- Admin review workflow
+- No fictional prices or automatic quotations
+- Confirm that final pricing and availability are determined by the team
+
+11. LEGAL
+- /privacy-policy
+- /terms-and-conditions
+- CMS editing
+- Draft and legal review flags where needed
+- No fabricated compliance guarantees
+
+PRODUCT CATEGORY SEED STRUCTURE
+
+Confirmed in Stable's company profile:
+1. Hardware
+2. Power Tools
+3. Plumbing Materials
+4. Sanitary Ware
+5. Ceramics & Tiles
+6. Electrical Materials
+7. Cement Products
+8. Waterproofing Materials
+
+Research and prepare useful subcategories, e.g.:
+
+Hardware:
+- Fasteners and anchors
+- Hinges and door fittings
+- General construction hardware
+- Hand tools and accessories
+
+Power Tools:
+- Drills
+- Angle grinders
+- Cutting tools
+- Power tool accessories
+
+Plumbing:
+- PPR pipes and fittings
+- UPVC pipes and fittings
+- Valves
+- Drainage fittings
+- Plumbing accessories
+
+Sanitary:
+- Wash basins
+- Toilets and WC systems
+- Faucets and mixers
+- Showers
+- Bathroom accessories
+
+Ceramics:
+- Ceramic wall tiles
+- Floor tiles
+- Porcelain tiles
+- Bathroom and kitchen tile ranges
+
+Electrical:
+- Cables and wires
+- Switches and sockets
+- Circuit protection
+- Conduits and accessories
+- Lighting accessories
+
+Cement Products:
+- Bagged cement
+- Cement-related masonry products
+- Mortar and plaster materials
+- Construction consumables
+
+Waterproofing:
+- Waterproofing membranes
+- Liquid waterproofing products
+- Sealants
+- Waterproofing accessories
+
+Expanded candidate categories may include blocks, plywood/timber, paints, steel, sand/aggregates and safety equipment. These should be seeded as draft/inactive or a pending-review catalogue collection; do not display them as stocked products until the admin confirms Stable supplies them.
+
+Seed representative product families with original descriptions and sensible generic technical attributes. Keep unverified inventory unpublished. Do not invent SKU-level product data, certifications, product brands, prices, or stock.
+
+QUOTE LIST EXPERIENCE
+Implement a lightweight, user-friendly quote list:
+- Add product
+- Adjust quantity
+- Remove item
+- Persist locally until submission
+- Floating quote count
+- Accessible drawer or dedicated review step
+- Submit to PHP backend
+- Reference product IDs and quantities securely
+- Do not treat it as an e-commerce cart
+- No payment gateway
+- No account required for customers
+
+ADMIN CMS — HIGH PRIORITY
+
+URL: /admin
+Build a complete bespoke CMS with a modern professional interface.
+
+ADMIN AUTHENTICATION
+- Secure login and logout
+- Role-based authorization
+- Admin account setup using CLI installer
+- Passwords securely hashed in PHP
+- Session management via secure HttpOnly cookies
+- CSRF protection for cookie-based mutations
+- Rate-limited login
+- Password reset only with verified secure delivery mechanism
+- No default public credentials
+- No hardcoded passwords, JWT secrets or API secrets in source
+- Proper authorization on every backend endpoint
+- User activity logs
+
+ROLES
+- Super Admin: complete access
+- Admin: content, products, media, enquiries
+- Editor: approved content permissions
+- Catalogue Manager: categories/products
+- Enquiry Manager: read/manage enquiries and applications
+
+Implement granular permissions, not UI-only role restrictions.
+
+ADMIN DASHBOARD
+- Elegant dashboard layout
+- Sidebar navigation
+- Overview metrics from the database
+- Products count
+- Categories count
+- Published/draft blog counts
+- New inquiries
+- New quotations
+- Career applications
+- Recent activity
+- Quick action buttons
+- Real data only, no simulated charts or counts
+
+CMS MODULES
+
+A. Page Builder / Content Editor
+- CMS-managed homepage sections
+- Edit hero heading, description, buttons
+- Add/reorder/hide selected sections
+- Rich text and image selection
+- Preview draft changes
+- Publish/unpublish
+- Avoid arbitrary user-entered HTML/JS execution
+- Use typed section blocks and controlled layouts
+- Version history for important pages
+
+B. Categories
+- Add, edit, delete safely
+- Parent/subcategory hierarchy
+- Slug
+- Description
+- Icon
+- Cover image
+- SEO fields
+- Sort order
+- Active/inactive
+- Featured toggle
+- Prevent destructive deletion when dependent products exist; allow archival
+
+C. Products
+- Add/edit/archive
+- Category selection
+- Product code
+- Description
+- Rich specifications
+- Gallery images
+- Datasheet uploads
+- Tags
+- SEO
+- Featured status
+- Draft/published/archived
+- Product preview
+- Bulk status changes
+- CSV import/export with validation and clear error reporting
+- Duplicate handling
+- Safe slug generation
+- Image alt text
+- No misleading stock default
+
+D. Blog Manager
+- Rich text editor (TipTap or equivalent)
+- Draft, published, scheduled
+- Categories/tags
+- Author
+- Thumbnail/cover image
+- SEO metadata
+- Preview
+- Related posts
+- Content sanitization
+
+E. Media Library
+- Upload authorized images
+- Image metadata and alt text
+- License/source metadata
+- Search
+- Folders or tags
+- Image dimensions/file size
+- Safe deletion and usage reference checking
+- Format validation, MIME sniffing, size limits
+- Generate thumbnails
+- Prevent executable uploads
+- Avoid public exposure of sensitive uploaded documents
+
+F. Inquiry Management
+- Contact form inquiries
+- Status: New, In Progress, Replied, Closed
+- Internal notes
+- Search/filter/date range
+- Export CSV
+- No public access to personal data
+
+G. Quotation Requests
+- View customer information
+- Product lists and quantities
+- View safely stored attachments
+- Status tracking
+- Notes
+- Export
+- Notification preferences
+
+H. Career Management
+- Add/edit/archive jobs
+- Job application inbox
+- Resume download via authorized backend endpoints
+- Status tracking
+- Applicant data retention controls
+
+I. Site Settings
+- Company name
+- Brand logo/favicon
+- Phone
+- WhatsApp
+- Email
+- Address
+- Google Maps URL
+- Social links
+- Footer content
+- SEO defaults
+- Analytics ID
+- Business hours (blank until verified)
+- Display/hide optional Managing Director information
+
+J. Navigation / Menu Manager
+- Header menu
+- Footer groups
+- Order
+- Visible status
+- Link destination validation
+
+K. User & Role Management
+- Create/deactivate staff accounts
+- Assign roles
+- Change passwords
+- Audit logs
+
+L. System Settings
+- API configuration summaries without exposing secrets
+- Media limits
+- Email sender configuration
+- Cache purge / revalidation
+- Database backup functionality restricted to admins
+- Logs and health checks
+- Safe maintenance options
+
+SQLITE DATABASE ARCHITECTURE
+
+Use CodeIgniter 4 SQLite database with real migrations, indexes, foreign keys where appropriate and seeders.
+
+Design tables including:
+users
+roles
+permissions
+role_permissions
+user_roles
+user_sessions (if using DB sessions)
+audit_logs
+site_settings
+pages
+page_sections
+page_versions
+menus
+menu_items
+categories
+products
+product_images
+product_specifications
+product_tags
+tags
+media_files
+media_licenses
+blog_posts
+blog_categories
+blog_post_categories
+career_jobs
+career_applications
+contact_inquiries
+quote_requests
+quote_request_items
+quote_attachments
+faqs
+redirects
+seo_metadata
+
+You may normalize and extend this schema sensibly.
+Use JSON only for structured flexible fields where justified.
+Prefer relational structures for query-heavy relationships.
+
+SQLITE REQUIREMENTS
+- SQLite file stored outside public web root
+- Writable only by authorized PHP process and maintenance user
+- WAL mode where appropriate
+- Busy timeout and transaction discipline
+- Foreign keys enforced
+- Indexed slugs, status, category, timestamps
+- DB migration workflow
+- Tested backup and restore
+- Protect SQLite database and backup files from direct web access
+- No Next.js direct filesystem DB access
+- All database interaction through CodeIgniter backend
+- Be aware of SQLite's single-writer behavior; document when migration to MySQL would be appropriate
+
+API DESIGN
+
+RESTful, versioned backend under /api/v1
+Public read endpoints:
+- site settings (public-safe fields only)
+- navigation
+- published pages/sections
+- categories
+- published products
+- single product
+- published blogs
+- blog detail
+- jobs
+- job detail
+- FAQs
+
+Public write endpoints:
+- contact inquiry
+- RFQ
+- career application
+
+Protected admin CRUD endpoints for each CMS module.
+Use consistent JSON response envelopes and validation errors.
+Implement pagination, filters, safe sort allowlists, search.
+Never interpolate user input into raw SQL.
+Implement secure and properly validated file handling.
+Ensure protected records never appear in public responses.
+Use appropriate CORS policy; preferably same-origin API via reverse proxy.
+Avoid a permanently exposed, unrestricted admin API.
+
+SECURITY
+- Argon2id or framework-supported secure password hashing
+- Enforced HTTPS in production
+- Secure HttpOnly SameSite cookies
+- CSRF protection
+- Correct CORS
+- API request throttling
+- Strict server-side validation
+- Output escaping and rich-text sanitization
+- File extension, actual MIME, size, and content checks
+- Private resume/BOQ files
+- Non-public SQLite DB and .env files
+- Least-privilege PHP processes
+- Security headers / CSP compatible with Next.js
+- Safe redirects
+- No directory listing
+- No detailed exception traces for visitors
+- Rate-limited contact/RFQ/career submission
+- Honeypot or privacy-conscious CAPTCHA strategy
+- Audit logging for privileged operations
+- Avoid logging sensitive applicant data unnecessarily
+- Document retention and deletion mechanisms
+
+SEO — UAE MARKET
+Implement:
+- Unique title and meta description for every published page
+- SEO fields controlled by admin
+- Canonical URLs
+- Sitemap.xml including published public URLs only
+- Robots.txt
+- Open Graph and Twitter preview metadata
+- Organization/LocalBusiness structured data using verified company details
+- Product/category schema where appropriate and accurate
+- BreadcrumbList structured data
+- BlogPosting structured data
+- FAQ schema only where displayed and eligible
+- Semantic HTML and accessible headings
+- Meaningful internal linking
+- Optimized images
+- Clean human-friendly URLs
+- 301 redirects on slug changes
+- Proper 404 and not-found behavior
+- Noindex on admin, search result pages where appropriate, drafts and previews
+- Domain configurable by environment
+- Google Search Console / analytics setup instructions
+
+Target legitimate search intent:
+- building materials supplier Ajman
+- building materials trading Ajman
+- hardware supplier Ajman
+- plumbing materials Ajman
+- sanitary ware Ajman
+- electrical materials Ajman
+- ceramic tiles Ajman
+- power tools Ajman
+- waterproofing materials Ajman
+- building materials Al Jurf
+
+Write genuinely useful, original SEO content.
+Do not keyword-stuff.
+Do not claim UAE-wide delivery unless the company confirms it.
+Do not include fake reviews or stars.
+
+RESPONSIVE DESIGN
+Optimize first-class experiences for:
+- 360px small Android phone
+- 375/390/430px phones
+- 768px tablets
+- iPad portrait/landscape
+- 1024px laptops
+- 1440px desktops
+- large 1920px displays
+
+Mobile requirements:
+- compact premium header
+- polished navigation overlay
+- touch-friendly category cards
+- responsive image art direction
+- readable type
+- elegant stacked grids
+- accessible forms
+- sticky bottom contact/quote actions only when useful and non-obstructive
+- no horizontal overflow
+- no hover-only essential functionality
+
+ACCESSIBILITY & PERFORMANCE
+- WCAG 2.2 AA target
+- Keyboard navigation
+- Visible focus states
+- Accessible dialogs and dropdowns
+- Good text contrast
+- Reduced-motion support
+- Semantic landmarks
+- Lazy loading for below-fold content
+- No lazy loading for critical LCP image
+- Image sizes/srcset
+- Dynamic imports for heavy interactions
+- Minimize JavaScript sent to browser
+- Server-render public content
+- Appropriate caching and revalidation
+- Skeletons without layout shifts
+- Core Web Vitals optimization
+- Aim for Lighthouse 90+ where feasible with production assets and realistic throttling
+
+ANIMATION SPECIFICATION
+Create reusable components:
+- RevealOnScroll
+- StaggeredText
+- MagneticButton (only if accessible and performant)
+- AnimatedUnderline
+- ImageReveal
+- CountUp only for genuine numeric data
+- SmoothAccordion
+- PageTransition only when compatible with Next.js routing
+- HoverImageZoom
+- StickySectionHeader
+- ResponsiveMegaMenu
+
+Use tasteful motion timing ~150–700ms depending on element.
+Do not animate every paragraph or cause distracting continuous motion.
+Ensure all CTA buttons remain immediately usable.
+
+NOTIFICATIONS
+- Admin notification for inquiries and RFQs when SMTP configured
+- Applicant confirmation only when configured
+- Store records even when email fails
+- Background/retry mechanism where justified
+- Never commit SMTP credentials
+- User-friendly admin notice for delivery failures
+
+PROJECT STRUCTURE
+Use a clean monorepo or organized two-app structure, e.g.:
+
+/frontend
+  /app
+  /components
+  /features
+  /lib
+  /types
+  /public
+
+/backend
+  /app/Controllers/Api/V1
+  /app/Models
+  /app/Services
+  /app/Filters
+  /app/Validation
+  /app/Database/Migrations
+  /app/Database/Seeds
+  /writable
+
+/docs
+  architecture.md
+  setup.md
+  deployment-aapanel.md
+  cms-guide.md
+  backup-restore.md
+  image-licenses.md
+
+Include .env.example for frontend and backend.
+
+CMS DATA FETCHING
+Ensure:
+- Homepage data comes from CMS
+- Public pages are server-rendered
+- Changes in admin trigger safe invalidation or revalidation
+- Draft previews are securely authenticated
+- Cache invalidation has an authenticated mechanism
+- No stale publicly visible content after expected cache update windows
+- Correct handling of draft vs published versions
+
+DEPLOYMENT TO AAPANEL
+Target Ubuntu VPS with aaPanel:
+- Next.js running as managed Node.js application on localhost
+- PHP CodeIgniter 4 served via PHP-FPM
+- SQLite stored in protected writable directory
+- Nginx reverse proxy routes /api to CI4
+- /admin served by Next.js with APIs secured by backend
+- HTTPS via valid certificate
+- Process auto-restart
+- Environment variables
+- File permissions
+- Log rotation
+- Backup strategy
+- PHP extensions required for SQLite
+- Upload size limits
+- SMTP setup
+- Build steps
+- Database migrations and initial admin creation
+- Safe updates without losing CMS content
+- No destructive database reseeding in production
+
+Include explicit Nginx configuration examples, deployment commands, and troubleshooting instructions appropriate for aaPanel.
+
+TESTING
+Write automated tests covering:
+- Authentication and permissions
+- Public/admin API response behavior
+- Form validation
+- Product filtering/search
+- CRUD operations
+- SQLite constraints
+- File upload restrictions
+- Draft/published isolation
+- Quote list behavior
+- Sitemap and SEO metadata
+- Regression cases
+
+Use Playwright for responsive end-to-end flows where practical.
+
+Manually/visually inspect:
+- Homepage at mobile/tablet/desktop widths
+- Navigation and mega menu
+- Category pages
+- Product details
+- Quote submission
+- CMS login
+- Product creation/edit
+- Blog publishing
+- Image uploads
+- Careers application
+- Error/empty states
+
+Verify no console errors, broken images, dead links, or horizontal overflow.
+
+IMPLEMENTATION ORDER
+
+PHASE 1 — RESEARCH & PLAN
+- Inspect company PDFs and logo
+- Research reference site category taxonomy
+- Document verified company facts
+- Create brief site map, design tokens, data model
+- Flag unverified catalogue entries
+
+PHASE 2 — DESIGN SYSTEM
+- Build typography/colors/components
+- Implement polished nav/header/footer
+- Implement animation primitives
+- Establish responsive layout rules
+
+PHASE 3 — BACKEND
+- Set up CodeIgniter 4
+- Configure SQLite
+- Create migrations and seeders
+- Build secure auth/RBAC
+- Implement REST API
+- Validate endpoints
+
+PHASE 4 — PUBLIC WEBSITE
+- Build all requested pages
+- Connect real API
+- Add public search/catalogue
+- Implement quote list, forms, blog and careers
+- Add real permitted imagery
+
+PHASE 5 — CMS
+- Build working admin modules
+- Secure CRUD workflows
+- Rich text and media uploads
+- Draft preview and publishing
+- Settings and inquiries
+
+PHASE 6 — SEO & PERFORMANCE
+- Metadata/schema/sitemap
+- Caching and revalidation
+- Accessibility
+- Image and motion optimization
+
+PHASE 7 — TEST & DEPLOYMENT
+- Run application locally
+- Test actual user flows
+- Check breakpoints
+- Fix errors
+- Write aaPanel deployment guide
+- Document backup and restoration
+
+CRITICAL ACCEPTANCE CRITERIA
+A. It looks like a bespoke premium construction brand website, not a generic template.
+B. Its visual style is cohesive with Stable's actual architectural navy/gold logo.
+C. Mobile experience is as carefully designed as desktop.
+D. All public pages exist and use CMS-managed content.
+E. Products, categories, images, blogs and pages can be maintained through admin.
+F. Forms save to SQLite and can be reviewed in CMS.
+G. Admin roles are actually enforced by the PHP backend.
+H. No facts or images from Media Trading identify Stable.
+I. Public catalogue does not imply unverified products are in stock.
+J. Site performs well, is accessible and search-engine friendly.
+K. There are no decorative nonfunctional buttons.
+L. The codebase can be deployed to aaPanel with clear documented steps.
+
+START NOW:
+First inspect the files and repository, then give a concise implementation plan and immediately begin development. Do not stop after planning. Continue through the working application, database migrations, admin CMS, tests, and deployment documentation. Show progress phase by phase and clearly list any business facts requiring confirmation before launch.
