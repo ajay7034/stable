@@ -1,6 +1,7 @@
 <?php
 use CodeIgniter\Router\RouteCollection;
 /** @var RouteCollection $routes */
+$routes->match(['get','put'],'api/v1/admin/website','Website::settings');
 $routes->post('api/v1/admin/restore/(:num)','Studio::restore/$1');
 $routes->match(['get','put'],'api/v1/admin/navigation','Studio::navigation');
 $routes->match(['get','put'],'api/v1/admin/details/(:num)','Studio::details/$1');

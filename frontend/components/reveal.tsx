@@ -1,12 +1,15 @@
 "use client";
 import { useEffect, useRef } from "react";
+import { useWebsite } from "@/components/website-provider";
 
 export function Reveal({ children }: { children: React.ReactNode }) {
+  const settings = useWebsite();
+  const enabled = settings.design_scroll_animations_enabled !== "0";
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const element = ref.current;
     const preference = matchMedia("(prefers-reduced-motion: reduce)");
-    if (!element || preference.matches || !("IntersectionObserver" in window)) return;
+    if (!enabled || !element || preference.matches || !("IntersectionObserver" in window)) return;
     // Observe individual pieces, including cards below the first row, rather than
     // revealing an entire tall section when its first few pixels enter the screen.
     const pieces = Array.from(element.querySelectorAll<HTMLElement>(
@@ -39,6 +42,6 @@ export function Reveal({ children }: { children: React.ReactNode }) {
       preference.removeEventListener("change", showAll);
       targets.forEach((target) => { target.classList.remove("reveal-ready", "reveal-visible"); target.style.removeProperty("--reveal-delay"); });
     };
-  }, []);
+  }, [enabled]);
   return <div ref={ref}>{children}</div>;
 }

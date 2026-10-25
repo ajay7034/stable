@@ -1,4 +1,6 @@
+import { WebsiteCopy } from "@/components/website-copy";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+import { websiteCards, websiteImage } from "@/lib/website";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { QuoteList } from "@/components/quote-list";
@@ -59,37 +61,29 @@ export default async function Page({
     );
     return (
       <>
-        <PageHero variant={slug === "blogs" ? "materials" : "architecture"}>
+        <PageHero variant={slug === "blogs" ? "materials" : "architecture"} pageKey={slug}>
           <Breadcrumbs
             items={[{ name: slug === "blogs" ? "Journal" : "Careers" }]}
           />
           <p className="eyebrow">
-            {slug === "blogs"
-              ? "THE STABLE JOURNAL"
-              : "PEOPLE MAKE THE DIFFERENCE"}
+            {slug === "blogs" ? s.design_journal_eyebrow : s.design_careers_eyebrow}
           </p>
           <h1>{slug === "blogs" ? s.blog_heading : s.careers_heading}</h1>
           <p>
-            {slug === "blogs"
-              ? "Practical thoughts on materials, planning and the details that bring a project together."
-              : "Explore opportunities to become part of the Stable team in Ajman."}
+            {slug === "blogs" ? s.design_journal_description : s.design_careers_description}
           </p>
         </PageHero>
         <section className="page">
           {slug === "blogs" && (
             <form className="filters">
-              <label>
-                Search the journal
-                <input
+              <label><WebsiteCopy id="design_copy_ba55a41e941e" fallback={"Search the journal"} /><input
                   name="q"
-                  placeholder="Find a story or topic"
+                  placeholder={s.design_journal_search_placeholder}
                   defaultValue={q.q}
                 />
               </label>
               <button>
-                <Search size={16} />
-                Search stories
-              </button>
+                <Search size={16} /><WebsiteCopy id="design_copy_890078fbe4b8" fallback={"Search stories"} /></button>
             </form>
           )}
           {result.data.length ? (
@@ -129,9 +123,7 @@ export default async function Page({
                     </p>
                     <h3>{r.title}</h3>
                     <p>{r.description}</p>
-                    <span className="text-link">
-                      Read the story
-                      <ArrowUpRight size={16} />
+                    <span className="text-link"><WebsiteCopy id="design_copy_ee3757415ed4" fallback={"Read the story"} /><ArrowUpRight size={16} />
                     </span>
                   </Link>
                 ))}
@@ -159,7 +151,7 @@ export default async function Page({
             )
           ) : (
             <div className="empty">
-              <p className="eyebrow">STAY CONNECTED</p>
+              <p className="eyebrow"><WebsiteCopy id="design_copy_2ac201727bb5" fallback={"STAY CONNECTED"} /></p>
               <h2>
                 {slug === "careers"
                   ? "No current openings."
@@ -170,9 +162,7 @@ export default async function Page({
                   ? "We don’t have any published vacancies at the moment. Please check back for future opportunities."
                   : "Try another search or visit again for more insights."}
               </p>
-              <Link className="text-link" href="/contact">
-                Get in touch
-                <ArrowUpRight size={16} />
+              <Link className="text-link" href="/contact"><WebsiteCopy id="design_copy_430b4d0cd231" fallback={"Get in touch"} /><ArrowUpRight size={16} />
               </Link>
             </div>
           )}
@@ -192,7 +182,7 @@ export default async function Page({
   if (slug === "about")
     return (
       <>
-        <PageHero variant="architecture">
+        <PageHero variant="architecture" pageKey="about" imageId={page.cover_id}>
           <Breadcrumbs items={[{ name: "About Stable" }]} />
           <p className="eyebrow">{s.about_eyebrow}</p>
           <h1>{s.about_heading || page.title}</h1>
@@ -202,53 +192,45 @@ export default async function Page({
         <section className="intro section-wrap about-intro">
           <div className="intro-image">
             <Image
-              src={`${basePath}/images/architecture.webp`}
+              src={websiteImage(s.design_about_intro_image, "/images/architecture.webp")} unoptimized={!!s.design_about_intro_image}
               fill
               sizes="(max-width:600px) 88vw, 42vw"
               alt="Conceptual architectural materials and light"
             />
             <div className="image-caption">
-              <span>THE FOUNDATION OF SOMETHING GREAT</span>
+              <span>{s.design_about_image_caption}</span>
               <ArrowUpRight size={17} />
             </div>
           </div>
           <div className="intro-copy">
-            <p className="eyebrow">STABLE BUILDING MATERIALS TRADING LLC</p>
+            <p className="eyebrow">{s.design_about_intro_eyebrow}</p>
             <h2>{page.title}</h2>
             <RichText value={page.body || ""} />
-            <div className="about-support">
-              <p className="eyebrow">PRACTICAL SUPPORT, PERSONAL ATTENTION</p>
-              <ul>
-                <li><Check size={17} /><span><strong>Wholesale & retail enquiries</strong>For contractors, businesses and customers planning their next project.</span></li>
-                <li><Check size={17} /><span><strong>Construction to finishing</strong>Discuss materials for the foundations, services and finishing details.</span></li>
-                <li><Check size={17} /><span><strong>Clear next steps</strong>Specifications, pricing and availability confirmed for your enquiry.</span></li>
-              </ul>
-            </div>
-            <Link className="text-link" href="/products">
-              Explore our materials
+            {s.design_about_support_enabled !== "0" && <div className="about-support">
+              <p className="eyebrow">{s.design_about_support_heading}</p>
+              <ul>{websiteCards(s, "design_about_support_cards").map((card, index) => <li key={index}><Check size={17} /><span><strong>{card.title}</strong>{card.body}</span></li>)}</ul>
+            </div>}
+            <Link className="text-link" href={s.design_about_materials_href || "/products"}>
+              {s.design_about_materials_label}
               <ArrowUpRight size={16} />
             </Link>
           </div>
         </section>
         </Reveal>
-        <Reveal>
+        {s.design_about_process_enabled !== "0" && <Reveal>
           <section className="section-wrap about-process">
             <div className="section-heading">
-              <div><p className="eyebrow">A SIMPLE WAY FORWARD</p><h2>From your list to<br />a clearer next step.</h2></div>
-              <p>Whether you are preparing a construction requirement or choosing the finishing details, start with a conversation about what your project needs.</p>
+              <div><p className="eyebrow">{s.design_about_process_eyebrow}</p><h2>{s.design_about_process_heading}</h2></div>
+              <p>{s.design_about_process_description}</p>
             </div>
-            <div className="about-process-grid">
-              <article className="about-step"><span>01</span><h3>Share your requirements.</h3><p>Send your material list or bill of quantities, with the dimensions, quantities and finish you have in mind.</p></article>
-              <article className="about-step"><span>02</span><h3>Talk through the details.</h3><p>Discuss the intended application and your required date so the team can understand the scope of your enquiry.</p></article>
-              <article className="about-step"><span>03</span><h3>Confirm your next step.</h3><p>Review the specifications, pricing and available options with the team before deciding how to proceed.</p></article>
-            </div>
+            <div className="about-process-grid">{websiteCards(s, "design_about_process_cards").map((card, index) => <article className="about-step" key={index}><span>{String(index + 1).padStart(2, "0")}</span><h3>{card.title}</h3><p>{card.body}</p></article>)}</div>
           </section>
-        </Reveal>
+        </Reveal>}
         {s.display_director === "1" && (
           <section className="section-wrap values-section">
-            <p className="eyebrow">OUR LEADERSHIP</p>
+            <p className="eyebrow">{s.design_leadership_eyebrow}</p>
             <h2>{s.director_name}</h2>
-            <p>Managing Director</p>
+            <p>{s.design_director_role}</p>
             {s.director_phone && (
               <a className="text-link" href={"tel:" + s.director_phone}>
                 {s.director_phone}
@@ -257,29 +239,12 @@ export default async function Page({
             )}
           </section>
         )}
-        <Reveal>
-        <section className="procurement section-wrap about-procurement">
-          <div className="procurement-content">
-            <p className="eyebrow">ALWAYS TRUSTED</p>
-            <h2>
-              Tell us where
-              <br />
-              you want to begin.
-            </h2>
-            <p>
-              We welcome wholesale and retail enquiries for construction and
-              finishing requirements.
-            </p>
-          </div>
-          <div className="about-enquiry-card">
-            <p className="eyebrow">BRING YOUR MATERIAL LIST</p>
-            <h3>A useful starting point.</h3>
-            <p>A few details help us understand what you need.</p>
-            <ul><li>Material type and intended application</li><li>Dimensions, finish and quantities</li><li>Your required date and project location</li></ul>
-            <Link className="button" href="/contact">Start a conversation<ArrowUpRight size={17} /></Link>
-          </div>
-        </section>
-        </Reveal>
+        {s.design_about_cta_enabled !== "0" && <Reveal>
+          <section className="procurement section-wrap about-procurement">
+            <div className="procurement-content"><p className="eyebrow">{s.design_about_cta_eyebrow}</p><h2>{s.design_about_cta_heading}</h2><p>{s.design_about_cta_body}</p></div>
+            <div className="about-enquiry-card"><p className="eyebrow">{s.design_about_enquiry_eyebrow}</p><h3>{s.design_about_enquiry_heading}</h3><p>{s.design_about_enquiry_body}</p><ul>{(s.design_about_enquiry_checklist || "").split("\n").filter(Boolean).map((line, index) => <li key={index}>{line}</li>)}</ul><Link className="button" href={s.design_about_cta_href || "/contact"}>{s.design_about_cta_label}<ArrowUpRight size={17} /></Link></div>
+          </section>
+        </Reveal>}
         {!!page.faqs?.length && <section className="page"><FAQs items={page.faqs} /></section>}
       </>
     );
@@ -287,12 +252,12 @@ export default async function Page({
     const quote = slug === "request-quote";
     return (
       <div className={quote ? "quote-page" : ""}>
-        <PageHero variant="planning">
+        <PageHero variant="planning" pageKey={slug} imageId={page.cover_id}>
           <Breadcrumbs
             items={[{ name: quote ? "Request a quote" : "Contact" }]}
           />
           <p className="eyebrow">
-            {quote ? "LET’S GET YOUR PROJECT MOVING" : "RIGHT HERE IN AJMAN"}
+            {quote ? s.design_quote_eyebrow : s.design_contact_eyebrow}
           </p>
           <h1>{quote ? s.quote_heading : s.contact_heading}</h1>
           <p>{page.description}</p>
@@ -301,74 +266,60 @@ export default async function Page({
           <aside className="contact-details">
             {quote ? (
               <>
-                <p className="eyebrow">YOUR REQUIREMENTS</p>
+                <p className="eyebrow"><WebsiteCopy id="design_copy_ebfe4fe678aa" fallback={"YOUR REQUIREMENTS"} /></p>
                 <QuoteList />
                 <div className="product-detail-section">
-                  <h3>A little detail goes a long way.</h3>
-                  <p>
-                    Include quantities, dimensions and your required date. You
-                    can attach a PDF bill of quantities or material list.
-                  </p>
-                  <p>
-                    Our team will confirm specifications, pricing and
-                    availability.
-                  </p>
+                  <h3><WebsiteCopy id="design_copy_2cf17a249f5b" fallback={"A little detail goes a long way."} /></h3>
+                  <p><WebsiteCopy id="design_copy_2b0079b28705" fallback={"Include quantities, dimensions and your required date. You can attach a PDF bill of quantities or material list."} /></p>
+                  <p><WebsiteCopy id="design_copy_e70f390383c8" fallback={"Our team will confirm specifications, pricing and availability."} /></p>
                 </div>
               </>
             ) : (
               <>
-                <h2>
-                  A conversation
-                  <br />
-                  worth starting.
-                </h2>
+                <h2>{s.design_contact_panel_heading}</h2>
                 <article>
-                  <span>Visit us</span>
+                  <span><WebsiteCopy id="design_copy_bff57c623c5c" fallback={"Visit us"} /></span>
                   <p>{s.address}</p>
                   {s.maps_url && (
                     <a className="text-link" href={s.maps_url}>
-                      <MapPin size={15} />
-                      Open location
-                      <ArrowUpRight size={15} />
+                      <MapPin size={15} /><WebsiteCopy id="design_copy_4130d9d5190e" fallback={"Open location"} /><ArrowUpRight size={15} />
                     </a>
                   )}
                 </article>
                 <article>
-                  <span>Call the team</span>
+                  <span><WebsiteCopy id="design_copy_abd0a0830ee6" fallback={"Call the team"} /></span>
                   <a href={"tel:" + s.phone}>{s.phone}</a>
                 </article>
                 <article>
-                  <span>Send an email</span>
+                  <span><WebsiteCopy id="design_copy_c553ba2c305c" fallback={"Send an email"} /></span>
                   <a href={"mailto:" + s.email}>{s.email}</a>
                 </article>
                 {s.business_hours && (
                   <article>
-                    <span>Opening hours</span>
+                    <span><WebsiteCopy id="design_copy_866cc922e661" fallback={"Opening hours"} /></span>
                     <p>{s.business_hours}</p>
                   </article>
                 )}
               </>
             )}
             <article>
-              <span>Prefer a quick message?</span>
+              <span><WebsiteCopy id="design_copy_cb62ddabe21d" fallback={"Prefer a quick message?"} /></span>
               <a
                 className="text-link"
                 href={
                   "https://wa.me/" +
                   (s.whatsapp || "971525463574").replace(/\D/g, "")
                 }
-              >
-                Chat on WhatsApp
-                <ArrowUpRight size={16} />
+              ><WebsiteCopy id="design_copy_5aa9f5b9bc31" fallback={"Chat on WhatsApp"} /><ArrowUpRight size={16} />
               </a>
             </article>
           </aside>
           <div className="contact-form-panel">
             <p className="eyebrow">
-              {quote ? "REQUEST A QUOTATION" : "SEND AN ENQUIRY"}
+              {quote ? s.design_quote_form_eyebrow : s.design_contact_form_eyebrow}
             </p>
             <h2>
-              {quote ? "Share your material list." : "What can we help with?"}
+              {quote ? s.design_quote_form_heading : s.design_contact_form_heading}
             </h2>
             <InquiryForm
               type={quote ? "quotes" : "contact"}
@@ -384,7 +335,7 @@ export default async function Page({
   }
   return (
     <>
-      <PageHero><Breadcrumbs items={[{ name: page.title }]} /><p className="eyebrow">STABLE / INFORMATION</p><h1>{page.title}</h1><p>{page.description}</p></PageHero>
+      <PageHero pageKey={slug} imageId={page.cover_id}><Breadcrumbs items={[{ name: page.title }]} /><p className="eyebrow"><WebsiteCopy id="design_copy_ffb78aaaea76" fallback={"STABLE / INFORMATION"} /></p><h1>{page.title}</h1><p>{page.description}</p></PageHero>
       <section className="page"><RichText value={page.body || ""} /><FAQs items={page.faqs || []} /></section>
     </>
   );

@@ -1,3 +1,4 @@
+import { WebsiteCopy } from "@/components/website-copy";
 import { PageHero } from "@/components/page-hero";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import { api, RecordData, ApiError } from "@/lib/api";
@@ -39,7 +40,7 @@ export default async function Article({
     base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   return (
     <>
-      <PageHero variant="materials">
+      <PageHero variant="materials" pageKey="blogs" imageId={p.cover_id}>
         <Breadcrumbs
           items={[{ name: "Journal", href: "/blogs" }, { name: p.title }]}
         />
@@ -71,7 +72,7 @@ export default async function Article({
       </div>
       <div className="article-layout">
         <aside className="article-aside">
-          <p className="eyebrow">IN THIS STORY</p>
+          <p className="eyebrow"><WebsiteCopy id="design_copy_b8b0488ad069" fallback={"IN THIS STORY"} /></p>
           {toc.map((h) => (
             <a href={"#" + h.id} key={h.id}>
               {h.text}
@@ -84,15 +85,13 @@ export default async function Article({
               paddingTop: 20,
             }}
           >
-            <p className="eyebrow">SHARE THIS STORY</p>
+            <p className="eyebrow"><WebsiteCopy id="design_copy_5e3d9aa39428" fallback={"SHARE THIS STORY"} /></p>
             <a
               href={
                 "https://wa.me/?text=" +
                 encodeURIComponent(p.title + " " + base + "/blogs/" + p.slug)
               }
-            >
-              WhatsApp
-              <ArrowUpRight size={12} className="inline-arrow" />
+            ><WebsiteCopy id="design_copy_0a4c8ccadbce" fallback={"WhatsApp"} /><ArrowUpRight size={12} className="inline-arrow" />
             </a>
             <a
               href={
@@ -101,9 +100,7 @@ export default async function Article({
                 "&body=" +
                 encodeURIComponent(base + "/blogs/" + p.slug)
               }
-            >
-              Email
-              <ArrowUpRight size={12} className="inline-arrow" />
+            ><WebsiteCopy id="design_copy_bc838323c815" fallback={"Email"} /><ArrowUpRight size={12} className="inline-arrow" />
             </a>
           </div>
         </aside>
@@ -111,19 +108,17 @@ export default async function Article({
           <RichText value={p.body || ""} />
           <FAQs items={p.faqs || []} />
           <div className="empty" style={{ marginTop: 40 }}>
-            <h3>Planning your materials?</h3>
-            <p>Our team is here to discuss your requirements.</p>
-            <Link className="text-link" href="/request-quote">
-              Request a quotation
-              <ArrowUpRight size={16} />
+            <h3><WebsiteCopy id="design_copy_6c40604c64e3" fallback={"Planning your materials?"} /></h3>
+            <p><WebsiteCopy id="design_copy_a9f22767f47b" fallback={"Our team is here to discuss your requirements."} /></p>
+            <Link className="text-link" href="/request-quote"><WebsiteCopy id="design_copy_b62bfb9c7bea" fallback={"Request a quotation"} /><ArrowUpRight size={16} />
             </Link>
           </div>
         </article>
       </div>
       {related.some((r) => r.id !== p.id) && (
         <section className="section-wrap" style={{ background: "var(--soft)" }}>
-          <p className="eyebrow">KEEP EXPLORING</p>
-          <h2>More from the journal.</h2>
+          <p className="eyebrow"><WebsiteCopy id="design_copy_479147d8b96e" fallback={"KEEP EXPLORING"} /></p>
+          <h2><WebsiteCopy id="design_copy_97bbc6fcaf4e" fallback={"More from the journal."} /></h2>
           <div className="journal-grid">
             {related
               .filter((r) => r.id !== p.id)

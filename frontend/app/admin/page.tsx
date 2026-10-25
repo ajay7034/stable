@@ -1,4 +1,5 @@
 "use client";
+import { WebsiteEditor } from "@/components/website-editor";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 import { useEffect, useState } from "react";
@@ -75,6 +76,7 @@ const menu = [
   { key: "quotes", label: "Quotations", icon: ClipboardList },
   { key: "applications", label: "Applications", icon: Users },
   { key: "navigation", label: "Navigation", icon: MenuIcon },
+  { key: "website", label: "Website design", icon: Settings },
   { key: "settings", label: "Site settings", icon: Settings },
   { key: "users", label: "Staff accounts", icon: Users },
   { key: "permissions", label: "Permissions", icon: Shield },
@@ -85,6 +87,7 @@ const menu = [
 ];
 const content = ["pages", "categories", "products", "blogs", "careers"];
 const special = [
+  "website",
   "media",
   "users",
   "navigation",
@@ -196,7 +199,7 @@ export default function Admin() {
     if (["dashboard", "account"].includes(key)) return true;
     return (
       access[
-        key === "quotes"
+        key === "website" ? "settings" : key === "quotes"
           ? "inquiries"
           : key === "permissions"
             ? "users"
@@ -450,6 +453,7 @@ export default function Admin() {
               </div>
             </>
           ) : null}
+          {module === "website" && <WebsiteEditor csrf={csrf} />}
           {module === "media" && <MediaManager csrf={csrf} />}{" "}
           {module === "users" && <StaffManager csrf={csrf} />}{" "}
           {module === "navigation" && <NavigationEditor csrf={csrf} />}{" "}
@@ -944,7 +948,7 @@ export default function Admin() {
               {rows
                 .filter(
                   (r) =>
-                    !["design_seeded", "taxonomy_seeded"].includes(
+                    !String(r.key).startsWith("design_") && !["design_seeded", "taxonomy_seeded"].includes(
                       String(r.key),
                     ),
                 )

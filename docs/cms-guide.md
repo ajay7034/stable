@@ -24,3 +24,13 @@ Enquiries, Quotations and Applications have review statuses and private notes. B
 Notifications shows pending/sent/failed delivery. Configure SMTP and schedule `php spark stable:notifications` to deliver admin notifications with retries. Optional applicant acknowledgements use `STABLE_APPLICANT_CONFIRMATIONS=true`. Without SMTP no emails are attempted; submissions remain stored.
 
 System reports database integrity, image-processing availability and queue counts; Download backup creates a consistent private SQLite copy. Include the media/documents/private attachment directories in operational backups as described in backup-restore.md. Retention is disabled until a business policy is configured. Legal pages are drafts until reviewed and published.
+
+## Website design and public wording
+
+The **Website design** area controls the public site's homepage slides and interval, all inner-page hero defaults, logos, category fallback images, brand colours, the logo preloader and its timing, scroll/zoom effects, the About support list, ordered enquiry steps, call-to-action copy, and public interface wording. Existing illustrations are imported into **Media library → Website design** during migration, without overwriting existing settings. Upload replacements in Media library first, then choose them in Website design. A page, category, article, product or vacancy's published cover image overrides its shared hero default.
+
+Use the group tabs to find Images, Category images, Brand, Motion, Homepage details, About page, Page introductions, Footer & navigation and wording controls. About cards support adding, removing and reordering items. Save with **Publish website settings**; these site-wide settings take effect immediately after refreshing the public page. Page bodies, covers, homepage sections and catalogue records still use their existing draft-and-publish workflow in their respective editors. Site settings continues to manage company details and the main page headings. Navigation manages menu labels, links and order.
+
+Images selected by published website settings are publicly readable and cannot be deleted while referenced. Unselected private uploads stay protected. Website values accept validated image references, colours, booleans, bounded timings, internal links and plain text; executable HTML, JavaScript and CSS editors are intentionally not provided. Passwords and SMTP credentials must never be put in public website fields.
+
+Production accounts are created separately using the interactive `stable:admin` command. Passwords are hashed, never seeded or included in deployment source.

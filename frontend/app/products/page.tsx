@@ -1,3 +1,4 @@
+import { WebsiteCopy } from "@/components/website-copy";
 import { PageHero } from "@/components/page-hero";
 import Link from "next/link";
 import { ArrowUpRight, Search } from "lucide-react";
@@ -44,7 +45,7 @@ export default async function Products({
   );
   return (
     <>
-      <PageHero variant="materials">
+      <PageHero variant="materials" pageKey="products">
         <Breadcrumbs items={[{ name: "Materials" }]} />
         <p className="eyebrow">{s.materials_eyebrow}</p>
         <h1>{s.materials_heading}</h1>
@@ -52,18 +53,14 @@ export default async function Products({
       </PageHero>
       <section className="page">
         <form className="filters">
-          <label>
-            Find a material
-            <input
+          <label><WebsiteCopy id="design_copy_9cb70b803a5a" fallback={"Find a material"} /><input
               name="q"
-              placeholder="Search by name or keyword"
+              placeholder={s.design_catalogue_search_placeholder}
               defaultValue={q.q}
             />
           </label>
-          <label>
-            Supply category
-            <select name="category" defaultValue={q.category || ""}>
-              <option value="">All categories</option>
+          <label><WebsiteCopy id="design_copy_535be3916dcd" fallback={"Supply category"} /><select name="category" defaultValue={q.category || ""}>
+              <option value=""><WebsiteCopy id="design_copy_09c3ccf441ea" fallback={"All categories"} /></option>
               {categories.map((c) => (
                 <option key={c.id} value={c.id}>
                   {c.parent_id ? "— " : ""}
@@ -72,18 +69,14 @@ export default async function Products({
               ))}
             </select>
           </label>
-          <label>
-            Sort by
-            <select name="sort" defaultValue={q.sort || "featured"}>
-              <option value="featured">Featured</option>
-              <option value="title">Name</option>
-              <option value="newest">Newest</option>
+          <label><WebsiteCopy id="design_copy_8fe09aa8c0e4" fallback={"Sort by"} /><select name="sort" defaultValue={q.sort || "featured"}>
+              <option value="featured"><WebsiteCopy id="design_copy_96f31014e1c2" fallback={"Featured"} /></option>
+              <option value="title"><WebsiteCopy id="design_copy_494dee5fc227" fallback={"Name"} /></option>
+              <option value="newest"><WebsiteCopy id="design_copy_2151df16302a" fallback={"Newest"} /></option>
             </select>
           </label>
           <button>
-            <Search size={16} />
-            Find materials
-          </button>
+            <Search size={16} /><WebsiteCopy id="design_copy_66307fff4d09" fallback={"Find materials"} /></button>
         </form>
         {visible.length > 0 && (
           <>
@@ -93,7 +86,7 @@ export default async function Products({
                   ? "Matching categories"
                   : "Our supply categories"}
               </h2>
-              <span className="eyebrow">WHOLESALE & RETAIL</span>
+              <span className="eyebrow"><WebsiteCopy id="design_copy_846db9851d90" fallback={"WHOLESALE & RETAIL"} /></span>
             </div>
             <div className="category-grid">
               {visible.map((c, i) => (
@@ -117,7 +110,7 @@ export default async function Products({
                   </div>
                   <div className="category-info">
                     <h3>{c.title}</h3>
-                    <span>Discover the category</span>
+                    <span><WebsiteCopy id="design_copy_d0aff0ebda20" fallback={"Discover the category"} /></span>
                   </div>
                 </Link>
               ))}
@@ -125,7 +118,7 @@ export default async function Products({
           </>
         )}
         <div className="section-heading">
-          <h2>Explore the details.</h2>
+          <h2><WebsiteCopy id="design_copy_48fc5761b727" fallback={"Explore the details."} /></h2>
           <p>{result.meta.total} published product listings</p>
         </div>
         {result.data.length ? (
@@ -145,22 +138,13 @@ export default async function Products({
                 ? "No matching product listings yet."
                 : "Tell us what your project needs."}
             </h3>
-            <p>
-              Our detailed catalogue is being verified. Send your material list
-              and we’ll help you discuss specifications, pricing and
-              availability.
-            </p>
-            <Link className="text-link" href="/request-quote">
-              Send your requirements
-              <ArrowUpRight size={16} />
+            <p><WebsiteCopy id="design_copy_7627ac022405" fallback={"Our detailed catalogue is being verified. Send your material list and we’ll help you discuss specifications, pricing and availability."} /></p>
+            <Link className="text-link" href="/request-quote"><WebsiteCopy id="design_copy_a1bc1c005785" fallback={"Send your requirements"} /><ArrowUpRight size={16} />
             </Link>
           </div>
         )}
         <Pagination path="/products" query={q} {...result.meta} />
-        <p className="illustration-note">
-          Material imagery is illustrative. Availability is confirmed on
-          enquiry.
-        </p>
+        <p className="illustration-note"><WebsiteCopy id="design_copy_446e88e2c650" fallback={"Material imagery is illustrative. Availability is confirmed on enquiry."} /></p>
       </section>
     </>
   );

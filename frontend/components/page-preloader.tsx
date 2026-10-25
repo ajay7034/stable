@@ -1,19 +1,23 @@
 "use client";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { useWebsite } from "@/components/website-provider";
+import { websiteImage } from "@/lib/website";
 import { usePathname, useSearchParams } from "next/navigation";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 function BrandLoader({ leaving = false }: { leaving?: boolean }) {
+  const settings = useWebsite();
+  const logo = websiteImage(settings.design_preloader_logo || settings.design_brand_logo);
   return (
     <div className={`page-preloader${leaving ? " is-leaving" : ""}`} role="status" aria-label="Loading page" data-testid="page-preloader">
       <div className="preloader-brand" aria-hidden="true">
         <div className="preloader-mark">
-          <img className="preloader-mark-outline" src={`${basePath}/logo-transparent.png`} alt="" width={112} height={104} />
-          <img className="preloader-mark-reveal" src={`${basePath}/logo-transparent.png`} alt="" width={112} height={104} />
+          <img className="preloader-mark-outline" src={logo} alt="" width={112} height={104} />
+          <img className="preloader-mark-reveal" src={logo} alt="" width={112} height={104} />
         </div>
-        <span className="preloader-wordmark">STABLE</span>
-        <span className="preloader-caption">ALWAYS TRUSTED.</span>
+        <span className="preloader-wordmark">{settings.design_preloader_wordmark || "STABLE"}</span>
+        <span className="preloader-caption">{settings.design_preloader_caption}</span>
         <span className="preloader-line"><span /></span>
       </div>
     </div>
@@ -21,12 +25,13 @@ function BrandLoader({ leaving = false }: { leaving?: boolean }) {
 }
 
 function NavigationPreloader() {
+  const settings = useWebsite();
   const pathname = usePathname();
   const search = useSearchParams();
   const routeKey = `${pathname}?${search.toString()}`;
   const [phase, setPhase] = useState<"visible" | "leaving" | "hidden">("visible");
   const startedAt = useRef(0);
-  const minimum = useRef(1250);
+  const minimum = useRef(Number(settings.design_preloader_initial_ms || 1250));
   const expected = useRef<string | null>(null);
   const currentRoute = useRef(routeKey);
   const finishTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
@@ -54,11 +59,11 @@ function NavigationPreloader() {
     clearTimers();
     expected.current = destination;
     startedAt.current = performance.now();
-    minimum.current = 1100;
+    minimum.current = Number(settings.design_preloader_navigation_ms ?? 1100);
     setPhase("visible");
     // Cancelled navigations and network failures must never trap the visitor.
     watchdog.current = setTimeout(() => { expected.current = null; finish(); }, 9000);
-  }, [clearTimers, finish]);
+  }, [clearTimers, finish, settings.design_preloader_navigation_ms]);
 
   useEffect(() => {
     startedAt.current = performance.now();
@@ -120,5 +125,7 @@ function NavigationPreloader() {
 }
 
 export function PagePreloader() {
+  const settings = useWebsite();
+  if (settings.design_preloader_enabled === "0") return null;
   return <Suspense fallback={<BrandLoader />}><NavigationPreloader /></Suspense>;
 }

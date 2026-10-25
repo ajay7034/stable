@@ -481,6 +481,7 @@ class Api extends ResourceController
             return $this->failForbidden();
         }
         if ($module === "settings") {
+            if ($error = \App\Services\WebsiteSettings::validate($data)) return $this->failValidationErrors($error);
             $keys = array_column(
                 $db
                     ->table("site_settings")

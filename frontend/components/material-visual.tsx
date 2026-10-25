@@ -1,5 +1,8 @@
+"use client";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import Image from "next/image";
+import { useWebsite } from "@/components/website-provider";
+import { websiteImage } from "@/lib/website";
 const slots: Record<string, number> = {
   hardware: 0,
   "power-tools": 1,
@@ -21,10 +24,12 @@ export function MaterialVisual({
   cover?: unknown;
   className?: string;
 }) {
+  const settings = useWebsite();
+  const image = cover || settings[`design_category_${slug.replaceAll("-", "_")}_image`];
   return (
     <div className={"material-visual " + className}>
-      {cover ? (
-        <img src={`${basePath}/api/v1/media/` + cover} alt={title} loading="lazy" />
+      {image ? (
+        <img src={websiteImage(String(image))} alt={title} loading="lazy" />
       ) : (
         <Image
           src={`${basePath}/images/` + (slug in slots ? slug : "hardware") + ".webp"}

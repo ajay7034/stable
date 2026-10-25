@@ -1,11 +1,11 @@
 # Implementation status
 
-The website and content studio run locally with a production Next.js build and CodeIgniter 4/SQLite backend. Deployment to a public domain has not been performed.
+The website and content studio run locally with a production Next.js build and CodeIgniter 4/SQLite backend. The application is deployed under its configured temporary URL prefix with separate frontend and PHP services and a repository-first release pipeline.
 
 ## Delivered
 - Bespoke navy/gold visual system, original supplied logo, architectural concept artwork, material illustrations, responsive layouts, accessible mobile dialogs and desktop materials navigation.
 - Home, About, searchable/paginated catalogue, category and product details, quotations, Contact, journal/articles, Careers/application pages, custom pages and unpublished legal drafts.
-- CMS-managed copy, settings, menus, home sections, FAQs, categories, products, posts, jobs and media. Three original planning articles provide useful launch content. Eight confirmed categories are public; candidate subcategories and expanded ranges remain drafts.
+- CMS-managed copy, settings, menus, home sections, FAQs, categories, products, posts, jobs and media. Website design controls also manage hero/brand imagery, About content, animation settings, colours and public wording. Three original planning articles provide useful launch content. Eight confirmed categories are public; candidate subcategories and expanded ranges remain drafts.
 - Rich text editing with constrained document validation and a safe React renderer; SEO fields, previews, revision restoration, scheduled publication, automatic slug redirects and independent draft/live versions. Editing draft sections, galleries or datasheets preserves the previous live content.
 - Normalized specifications and variants, ordered product galleries, immutable PDF datasheets, availability fields, category hierarchy validation, product CSV import/export, search, sorting, pagination and bulk publication actions.
 - Image decoding/re-encoding, WebP optimization, thumbnails, folders and provenance metadata. Draft images require authorization; deletion checks include current content, publications and revision history.
@@ -17,6 +17,6 @@ The website and content studio run locally with a production Next.js build and C
 - Repeatable cloud setup, aaPanel instructions, automated integration/browser/accessibility tests and an isolated SQLite restore drill. See validation.md for measured results and limits.
 
 ## Launch inputs still needed
-Provide the real domain/server, production administrator, SMTP credentials, approved legal policies and retention period. Confirm business hours, map pin and any social links before enabling them. Verify actual products/specifications and image rights before publishing inventory. Current material/architecture images are conceptual illustrations, not photographs of the business or its stock.
+Production server deployment and an operator-created administrator are configured. SMTP credentials, approved legal policies and a retention period remain operator inputs. Confirm business hours, map pin and any social links before enabling them. Verify actual products/specifications and image rights before publishing inventory. Current material/architecture images are conceptual illustrations, not photographs of the business or its stock.
 
 A deployed HTTPS smoke test, SMTP delivery test and full off-host file/database restore rehearsal remain deployment tasks. Local test results are not a guarantee of production performance or legal compliance.

@@ -1,3 +1,4 @@
+import { WebsiteCopy } from "@/components/website-copy";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import {
   ArrowUpRight,
@@ -11,6 +12,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { api, RecordData } from "@/lib/api";
+import { websiteImage } from "@/lib/website";
 import { HeroSlideshow } from "@/components/hero-slideshow";
 import { Reveal } from "@/components/reveal";
 import { MaterialVisual } from "@/components/material-visual";
@@ -78,21 +80,21 @@ export default async function Home() {
             <ArrowDown size={18} />
           </a>
         </div>
-        <span className="hero-index">ALWAYS TRUSTED / STABLE</span>
+        <span className="hero-index">{settings.design_hero_signature}</span>
       </section>
       <div className="trust-strip">
         <span>{settings.brand_theme}</span>
         <span>
           <Check size={16} />
-          Wholesale & retail
+          {settings.design_trust_1}
         </span>
         <span>
           <Check size={16} />
-          Construction & finishing materials
+          {settings.design_trust_2}
         </span>
         <span>
           <Check size={16} />
-          Based in Ajman, UAE
+          {settings.design_trust_3}
         </span>
       </div>
       {((page.sections || []) as Section[]).map((section) => (
@@ -101,22 +103,18 @@ export default async function Home() {
             <section className="intro section-wrap" id="discover">
               <div className="intro-image">
                 <Image
-                  src={`${basePath}/images/architecture.webp`}
+                  src={websiteImage(settings.design_home_intro_image, "/images/architecture.webp")} unoptimized={!!settings.design_home_intro_image}
                   alt="Illustrative architectural details in warm light"
                   fill
                   sizes="(max-width:768px) 90vw, 42vw"
                 />
                 <div className="image-caption">
-                  <span>THE DETAILS MAKE THE DIFFERENCE.</span>
+                  <span>{settings.design_home_image_caption}</span>
                   <ArrowUpRight size={18} />
                 </div>
                 <div className="intro-seal">
-                  <span>STABLE</span>
-                  <small>
-                    ALWAYS
-                    <br />
-                    TRUSTED.
-                  </small>
+                  <span>{settings.design_home_seal_name}</span>
+                  <small>{settings.design_home_seal_caption}</small>
                 </div>
               </div>
               <div className="intro-copy">
@@ -129,11 +127,7 @@ export default async function Home() {
                 </Link>
                 <div className="intro-signature">
                   <span className="signature-line" />
-                  <span>
-                    Rooted in Ajman.
-                    <br />
-                    Focused on your requirements.
-                  </span>
+                  <span>{settings.design_home_signature}</span>
                 </div>
               </div>
             </section>
@@ -176,7 +170,7 @@ export default async function Home() {
                     <div className="category-info">
                       <h3>{c.title}</h3>
                       <span>
-                        Explore materials
+                        {settings.design_category_link_label}
                         <ArrowRight size={14} />
                       </span>
                     </div>
@@ -184,8 +178,7 @@ export default async function Home() {
                 ))}
               </div>
               <p className="illustration-note">
-                Material imagery is illustrative. Specific products and
-                availability are confirmed on enquiry.
+                {settings.design_illustration_note}
               </p>
             </section>
           ) : section.kind === "values" ? (
@@ -231,18 +224,14 @@ export default async function Home() {
               </div>
               <div className="procurement-art">
                 <div className="plan-paper">
-                  <span>MATERIAL REQUIREMENTS</span>
+                  <span><WebsiteCopy id="design_copy_3c3d3708554e" fallback={"MATERIAL REQUIREMENTS"} /></span>
                   <div className="plan-lines" />
                   <div className="plan-building">
                     <i />
                     <i />
                     <i />
                   </div>
-                  <span className="plan-stamp">
-                    LET’S GET
-                    <br />
-                    STARTED.
-                  </span>
+                  <span className="plan-stamp"><WebsiteCopy id="design_copy_37f9f4c6e2ea" fallback={"LET’S GET"} /><br /><WebsiteCopy id="design_copy_84a0703c6e67" fallback={"STARTED."} /></span>
                 </div>
               </div>
             </section>
@@ -289,8 +278,7 @@ export default async function Home() {
                         {String(blog.blog_category || "Materials")}
                       </span>
                     </div>
-                    <p className="article-meta">
-                      STABLE JOURNAL <span>•</span>{" "}
+                    <p className="article-meta"><WebsiteCopy id="design_copy_184d0b393ed8" fallback={"STABLE JOURNAL"} /><span>•</span>{" "}
                       {Math.max(
                         1,
                         Math.ceil(
@@ -302,7 +290,7 @@ export default async function Home() {
                     </p>
                     <h3>{blog.title}</h3>
                     <span className="text-link">
-                      Read the story
+                      {settings.design_journal_read_label}
                       <ArrowUpRight size={16} />
                     </span>
                   </Link>

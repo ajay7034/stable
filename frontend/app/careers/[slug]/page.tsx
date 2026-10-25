@@ -1,3 +1,4 @@
+import { WebsiteCopy } from "@/components/website-copy";
 import { PageHero } from "@/components/page-hero";
 import { ApplicationForm } from "@/components/application-form";
 import { api, RecordData, ApiError } from "@/lib/api";
@@ -29,7 +30,7 @@ export default async function Job({
   if (p.slug !== slug) permanentRedirect("/careers/" + p.slug);
   return (
     <>
-      <PageHero variant="architecture">
+      <PageHero variant="architecture" pageKey="careers" imageId={p.cover_id}>
         <Breadcrumbs
           items={[{ name: "Careers", href: "/careers" }, { name: p.title }]}
         />
@@ -43,7 +44,7 @@ export default async function Job({
       </PageHero>
       <section className="contact-grid">
         <div>
-          <p className="eyebrow">ABOUT THIS OPPORTUNITY</p>
+          <p className="eyebrow"><WebsiteCopy id="design_copy_1f5586b6f7bb" fallback={"ABOUT THIS OPPORTUNITY"} /></p>
           <RichText value={p.body || ""} />
         </div>
         <ApplicationForm job={p.id} />

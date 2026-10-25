@@ -1,4 +1,6 @@
 "use client";
+import { WebsiteCopy } from "@/components/website-copy";
+
 import { useEffect, useState } from "react";
 type Item = { id: number; title: string; quantity: number };
 export function QuoteList({
@@ -56,14 +58,12 @@ export function QuoteList({
     );
   return (
     <div>
-      <h2>Your material list</h2>
+      <h2><WebsiteCopy id="design_copy_add98412d13d" fallback={"Your material list"} /></h2>
       {items.length ? (
         items.map((i) => (
           <div key={i.id} className="admin-row">
             <span>{i.title}</span>
-            <label>
-              Quantity
-              <input
+            <label><WebsiteCopy id="design_copy_14386e8712e3" fallback={"Quantity"} /><input
                 aria-label={"Quantity for " + i.title}
                 type="number"
                 min="1"
@@ -86,15 +86,11 @@ export function QuoteList({
                 }
               />
             </label>
-            <button onClick={() => save(items.filter((x) => x.id !== i.id))}>
-              Remove
-            </button>
+            <button onClick={() => save(items.filter((x) => x.id !== i.id))}><WebsiteCopy id="design_copy_d145731a1c3d" fallback={"Remove"} /></button>
           </div>
         ))
       ) : (
-        <p>
-          No selected products. Describe your requirements in the form below.
-        </p>
+        <p><WebsiteCopy id="design_copy_c02744734737" fallback={"No selected products. Describe your requirements in the form below."} /></p>
       )}
     </div>
   );

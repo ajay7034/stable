@@ -7,7 +7,7 @@ const loaded = async (page: import("@playwright/test").Page) => {
 test("first visit shows the logo then restores an interactive page", async ({ page }) => {
   await page.goto(home, { waitUntil: "domcontentloaded" });
   await expect(page.getByTestId("page-preloader").filter({ visible: true })).toBeVisible();
-  await expect(page.locator(".preloader-mark-reveal").filter({ visible: true })).toHaveAttribute("src", /logo-transparent.png$/);
+  await expect(page.locator(".preloader-mark-reveal").filter({ visible: true })).toHaveAttribute("src", /(logo-transparent\.png|\/api\/v1\/media\/\d+)$/);
   await page.waitForTimeout(650);
   await page.screenshot({ path: "test-results/preloader-desktop.png" });
   await loaded(page);

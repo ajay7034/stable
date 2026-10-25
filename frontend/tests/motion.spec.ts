@@ -52,7 +52,9 @@ test("mobile hero fits the viewport and has usable controls", async ({ page }) =
 test("autoplay waits for the next image on a slow connection", async ({ page }) => {
   let releaseImage!: () => void;
   const imageGate = new Promise<void>((resolve) => { releaseImage = resolve; });
-  await page.route("**/*hero-architecture-v2*", async (route) => { await imageGate; await route.continue(); });
+  const values = (await (await page.request.get(`${process.env.TEST_BASE_URL || "http://127.0.0.1:3000"}/api/v1/settings`)).json()).data;
+  const pattern = values.design_home_slide_2_image ? `**/api/v1/media/${values.design_home_slide_2_image}` : "**/*hero-architecture-v2*";
+  await page.route(pattern, async (route) => { await imageGate; await route.continue(); });
   await page.goto(home, { waitUntil: "domcontentloaded" });
   await expect(page.locator(".reveal-ready").first()).toBeAttached();
   await expect(page.locator(".hero-slideshow")).toHaveAttribute("data-playing", "false");

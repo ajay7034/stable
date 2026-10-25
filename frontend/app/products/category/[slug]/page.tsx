@@ -1,3 +1,4 @@
+import { WebsiteCopy } from "@/components/website-copy";
 import { PageHero } from "@/components/page-hero";
 import { api, apiPage, RecordData, ApiError } from "@/lib/api";
 import { notFound, permanentRedirect } from "next/navigation";
@@ -42,11 +43,11 @@ export default async function Category({
   const children = all.filter((r) => r.parent_id === c.id);
   return (
     <>
-      <PageHero variant="materials">
+      <PageHero variant="materials" pageKey="products" imageId={c.cover_id}>
         <Breadcrumbs
           items={[{ name: "Materials", href: "/products" }, { name: c.title }]}
         />
-        <p className="eyebrow">THE STABLE MATERIALS COLLECTION</p>
+        <p className="eyebrow"><WebsiteCopy id="design_copy_fd2698b6cdb2" fallback={"THE STABLE MATERIALS COLLECTION"} /></p>
         <h1>{c.title}</h1>
         <p>{c.description}</p>
       </PageHero>
@@ -56,29 +57,20 @@ export default async function Category({
             <MaterialVisual slug={c.slug} title={c.title} cover={c.cover_id} />
           </div>
           <div>
-            <p className="eyebrow">YOUR REQUIREMENTS, CONSIDERED</p>
-            <h2>
-              A practical start
-              <br />
-              to the right selection.
-            </h2>
+            <p className="eyebrow"><WebsiteCopy id="design_copy_0907e6cda6da" fallback={"YOUR REQUIREMENTS, CONSIDERED"} /></p>
+            <h2><WebsiteCopy id="design_copy_fb0d2e8c4de3" fallback={"A practical start"} /><br /><WebsiteCopy id="design_copy_229f835f1667" fallback={"to the right selection."} /></h2>
             <p>
               {c.body ||
                 "Share your application, specifications and quantities. Our team can discuss your requirements and confirm the available options."}
             </p>
-            <Link className="button" href={"/request-quote?category=" + c.id}>
-              Enquire about this category
-              <ArrowUpRight size={17} />
+            <Link className="button" href={"/request-quote?category=" + c.id}><WebsiteCopy id="design_copy_33ec281f8137" fallback={"Enquire about this category"} /><ArrowUpRight size={17} />
             </Link>
-            <p className="illustration-note" style={{ textAlign: "left" }}>
-              Specific products, specifications and availability are confirmed
-              on enquiry.
-            </p>
+            <p className="illustration-note" style={{ textAlign: "left" }}><WebsiteCopy id="design_copy_e77b65e7cbeb" fallback={"Specific products, specifications and availability are confirmed on enquiry."} /></p>
           </div>
         </div>
         {children.length > 0 && (
           <section className="product-detail-section">
-            <h2>Explore this category.</h2>
+            <h2><WebsiteCopy id="design_copy_dbdccb5bc94d" fallback={"Explore this category."} /></h2>
             <div className="category-grid">
               {children.map((r) => (
                 <Link
@@ -95,7 +87,7 @@ export default async function Category({
           </section>
         )}
         <section className="product-detail-section">
-          <h2>Product listings</h2>
+          <h2><WebsiteCopy id="design_copy_defd8c6ec39e" fallback={"Product listings"} /></h2>
           {result.data.length ? (
             <div className="category-grid">
               {result.data.map((p) => (
@@ -103,10 +95,7 @@ export default async function Category({
               ))}
             </div>
           ) : (
-            <p className="empty">
-              Individual product listings are being verified. Our team welcomes
-              enquiries for your material requirements.
-            </p>
+            <p className="empty"><WebsiteCopy id="design_copy_914866aa4970" fallback={"Individual product listings are being verified. Our team welcomes enquiries for your material requirements."} /></p>
           )}
           <Pagination
             path={"/products/category/" + slug}
@@ -116,7 +105,7 @@ export default async function Category({
         </section>
         <FAQs items={c.faqs || []} />
         <section className="product-detail-section">
-          <h2>Keep exploring.</h2>
+          <h2><WebsiteCopy id="design_copy_844b152faed2" fallback={"Keep exploring."} /></h2>
           <div className="category-grid">
             {all
               .filter((r) => r.id !== c.id && !r.parent_id)

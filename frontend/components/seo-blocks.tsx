@@ -1,3 +1,4 @@
+import { WebsiteCopy } from "@/components/website-copy";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import type { FAQ } from "@/lib/api";
@@ -20,7 +21,7 @@ export function Breadcrumbs({
   return (
     <>
       <nav className="breadcrumb" aria-label="Breadcrumb">
-        <Link href="/">Home</Link>
+        <Link href="/"><WebsiteCopy id="design_copy_69a96ea49417" fallback={"Home"} /></Link>
         {items.map((item, i) => (
           <span
             key={i}
@@ -56,8 +57,8 @@ export function FAQs({ items }: { items: FAQ[] }) {
   if (!items?.length) return null;
   return (
     <section className="product-detail-section">
-      <p className="eyebrow">A FEW HELPFUL ANSWERS</p>
-      <h2>Your questions, considered.</h2>
+      <p className="eyebrow"><WebsiteCopy id="design_copy_d954bf06162a" fallback={"A FEW HELPFUL ANSWERS"} /></p>
+      <h2><WebsiteCopy id="design_copy_81e8dc71ed4a" fallback={"Your questions, considered."} /></h2>
       <div className="faq-list">
         {items.map((f, i) => (
           <details key={i}>

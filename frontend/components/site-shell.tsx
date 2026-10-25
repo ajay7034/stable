@@ -1,9 +1,12 @@
 "use client";
+import { WebsiteCopy } from "@/components/website-copy";
+
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { websiteImage } from "@/lib/website";
 import Image from "next/image";
 import * as Dialog from "@radix-ui/react-dialog";
 import {
@@ -79,22 +82,20 @@ export function SiteShell({
       aria-label="Stable Building Materials Trading LLC home"
     >
       <Image
-        src={`${basePath}/logo-transparent.png`}
+        src={websiteImage(s.design_brand_logo)} unoptimized={!!s.design_brand_logo}
         alt="Stable company logo"
         width={56}
         height={52}
         priority
       />
       <span>
-        STABLE<small>BUILDING MATERIALS TRADING LLC</small>
+        {s.design_brand_name || "STABLE"}<small>{s.design_brand_subtitle}</small>
       </span>
     </Link>
   );
   return (
     <>
-      <a className="skip" href="#main">
-        Skip to content
-      </a>
+      <a className="skip" href="#main"><WebsiteCopy id="design_copy_de85e5114b75" fallback={"Skip to content"} /></a>
       <div className="utility">
         <span>
           <MapPin size={11} />
@@ -144,9 +145,7 @@ export function SiteShell({
           >
             <Search size={19} />
           </button>
-          <Link className="button header-quote" href="/request-quote">
-            Request a quote
-            <ArrowUpRight size={16} />
+          <Link className="button header-quote" href="/request-quote"><WebsiteCopy id="design_copy_871fce508f78" fallback={"Request a quote"} /><ArrowUpRight size={16} />
             {count > 0 && <span className="quote-badge">{count}</span>}
           </Link>
           <button
@@ -160,20 +159,14 @@ export function SiteShell({
         {mega && (
           <div className="mega-menu" id="material-menu">
             <div className="mega-intro">
-              <p className="eyebrow">THE MATERIALS COLLECTION</p>
-              <h2>
-                Everything starts
-                <br />
-                with the right material.
-              </h2>
+              <p className="eyebrow"><WebsiteCopy id="design_copy_12276e7976be" fallback={"THE MATERIALS COLLECTION"} /></p>
+              <h2><WebsiteCopy id="design_copy_ae45ae2f7a6a" fallback={"Everything starts"} /><br /><WebsiteCopy id="design_copy_1b71815665f2" fallback={"with the right material."} /></h2>
               <Link
                 prefetch={false}
                 className="text-link"
                 href="/products"
                 onClick={() => setMega(false)}
-              >
-                Explore all materials
-                <ArrowRight size={16} />
+              ><WebsiteCopy id="design_copy_d16585022d32" fallback={"Explore all materials"} /><ArrowRight size={16} />
               </Link>
             </div>
             <div className="mega-categories">
@@ -206,10 +199,8 @@ export function SiteShell({
         <Dialog.Portal>
           <Dialog.Overlay className="dialog-backdrop" />
           <Dialog.Content className="mobile-panel">
-            <Dialog.Title className="sr-only">Main menu</Dialog.Title>
-            <Dialog.Description className="sr-only">
-              Navigate the Stable website.
-            </Dialog.Description>
+            <Dialog.Title className="sr-only"><WebsiteCopy id="design_copy_3f644ca294f6" fallback={"Main menu"} /></Dialog.Title>
+            <Dialog.Description className="sr-only"><WebsiteCopy id="design_copy_09f137095d53" fallback={"Navigate the Stable website."} /></Dialog.Description>
             <div className="mobile-panel-top">
               {logo}
               <Dialog.Close className="icon-button" aria-label="Close menu">
@@ -230,9 +221,7 @@ export function SiteShell({
               className="button"
               href="/request-quote"
               onClick={() => setMobile(false)}
-            >
-              Request a quotation
-              <ArrowUpRight size={18} />
+            ><WebsiteCopy id="design_copy_5c353f67b148" fallback={"Request a quotation"} /><ArrowUpRight size={18} />
             </Link>
             <div className="mobile-contact">
               <p>{s.address}</p>
@@ -245,10 +234,8 @@ export function SiteShell({
         <Dialog.Portal>
           <Dialog.Overlay className="dialog-backdrop" />
           <Dialog.Content className="search-panel">
-            <Dialog.Title>Find your starting point.</Dialog.Title>
-            <Dialog.Description>
-              Search materials by name or keyword.
-            </Dialog.Description>
+            <Dialog.Title><WebsiteCopy id="design_copy_a4287ff03073" fallback={"Find your starting point."} /></Dialog.Title>
+            <Dialog.Description><WebsiteCopy id="design_copy_31d6f3c8f68a" fallback={"Search materials by name or keyword."} /></Dialog.Description>
             <Dialog.Close
               className="icon-button dialog-close"
               aria-label="Close search"
@@ -256,7 +243,7 @@ export function SiteShell({
               <X />
             </Dialog.Close>
             <form
-              action="/products"
+              action={`${basePath}/products`}
               className="search-form"
               onSubmit={() => setSearch(false)}
             >
@@ -264,11 +251,9 @@ export function SiteShell({
               <input
                 name="q"
                 aria-label="Search materials"
-                placeholder="What are you looking for?"
+                placeholder={s.design_search_placeholder}
               />
-              <button className="button">
-                Search
-                <ArrowRight size={18} />
+              <button className="button"><WebsiteCopy id="design_copy_6b4aa23e0567" fallback={"Search"} /><ArrowRight size={18} />
               </button>
             </form>
           </Dialog.Content>
@@ -278,7 +263,7 @@ export function SiteShell({
       <footer className="site-footer">
         <div className="footer-top">
           <div>
-            <p className="eyebrow">LET’S BUILD SOMETHING THAT LASTS</p>
+            <p className="eyebrow">{s.design_footer_eyebrow}</p>
             <h2>{s.footer_heading}</h2>
             <p>{s.footer_description}</p>
           </div>
@@ -298,7 +283,7 @@ export function SiteShell({
             <span className="brand-promise">{s.brand_theme}</span>
           </div>
           <div>
-            <h3>Explore</h3>
+            <h3>{s.design_footer_explore_label}</h3>
             {(footer.length ? footer : nav).map((m) => (
               <Link key={m.id} href={m.href}>
                 {m.label}
@@ -306,7 +291,7 @@ export function SiteShell({
             ))}
           </div>
           <div>
-            <h3>Our materials</h3>
+            <h3>{s.design_footer_materials_label}</h3>
             {categories
               .filter((c) => !c.parent_id)
               .slice(0, 8)
@@ -317,12 +302,12 @@ export function SiteShell({
               ))}
           </div>
           <div className="footer-contact">
-            <h3>Find us in Ajman</h3>
+            <h3>{s.design_footer_contact_label}</h3>
             <p>{s.address}</p>
             <a href={"tel:" + s.phone}>{s.phone}</a>
             <a href={"mailto:" + s.email}>{s.email}</a>
             <a className="footer-whatsapp" href={whatsapp}>
-              Let’s talk on WhatsApp
+              {s.design_footer_whatsapp_label}
               <ArrowUpRight size={15} />
             </a>
             {s.business_hours && <p>{s.business_hours}</p>}
@@ -351,13 +336,13 @@ export function SiteShell({
               </Link>
             ))}
           </div>
-          <span>Always Trusted. Always Stable.</span>
+          <span>{s.design_footer_promise}</span>
         </div>
       </footer>
       {count > 0 && path !== "/request-quote" && (
         <Link className="floating-quote" href="/request-quote">
           <ClipboardList size={20} />
-          Your quote list<span>{count}</span>
+          {s.design_floating_quote_label}<span>{count}</span>
           <ArrowRight size={16} />
         </Link>
       )}

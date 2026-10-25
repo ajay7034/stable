@@ -1,3 +1,4 @@
+import { WebsiteCopy } from "@/components/website-copy";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 export function Pagination({
@@ -28,12 +29,10 @@ export function Pagination({
       <div className="pagination-links">
         {page > 1 && (
           <Link href={href(page - 1)}>
-            <ArrowLeft size={13} className="inline-arrow" /> Previous
-          </Link>
+            <ArrowLeft size={13} className="inline-arrow" /><WebsiteCopy id="design_copy_be84f5a7bf4b" fallback={"Previous"} /></Link>
         )}
         {page < pages && (
-          <Link href={href(page + 1)}>
-            Next <ArrowRight size={13} className="inline-arrow" />
+          <Link href={href(page + 1)}><WebsiteCopy id="design_copy_928532f22d56" fallback={"Next"} /><ArrowRight size={13} className="inline-arrow" />
           </Link>
         )}
       </div>

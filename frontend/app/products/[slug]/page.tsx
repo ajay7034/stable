@@ -1,3 +1,4 @@
+import { WebsiteCopy } from "@/components/website-copy";
 import { PageHero } from "@/components/page-hero";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import { api, RecordData, ApiError } from "@/lib/api";
@@ -49,7 +50,7 @@ export default async function Product({
   const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   return (
     <>
-    <PageHero variant="materials">
+    <PageHero variant="materials" pageKey="products" imageId={p.cover_id}>
       <Breadcrumbs
         items={[
           { name: "Materials", href: "/products" },
@@ -70,7 +71,7 @@ export default async function Product({
         />
         <div>
           <p className="eyebrow">{c?.title || "STABLE MATERIALS"}</p>
-          <h2>Material details.</h2>
+          <h2><WebsiteCopy id="design_copy_fa43f0aae3db" fallback={"Material details."} /></h2>
           {p.product_code && (
             <p className="article-meta">REFERENCE: {p.product_code}</p>
           )}
@@ -83,14 +84,10 @@ export default async function Product({
           </p>
           <div className="actions">
             <QuoteList product={{ id: p.id, title: p.title }} />
-            <Link className="text-link" href="/request-quote">
-              Review quote list
-              <ArrowUpRight size={16} />
+            <Link className="text-link" href="/request-quote"><WebsiteCopy id="design_copy_db458bde0387" fallback={"Review quote list"} /><ArrowUpRight size={16} />
             </Link>
           </div>
-          <p style={{ fontSize: 11, marginTop: 22 }}>
-            Final pricing and availability are confirmed by the team.
-          </p>
+          <p style={{ fontSize: 11, marginTop: 22 }}><WebsiteCopy id="design_copy_beb8630ad17d" fallback={"Final pricing and availability are confirmed by the team."} /></p>
           <a
             className="text-link"
             href={
@@ -105,9 +102,7 @@ export default async function Product({
               )
             }
           >
-            <MessageCircle size={16} />
-            Enquire on WhatsApp
-            <ArrowUpRight size={16} />
+            <MessageCircle size={16} /><WebsiteCopy id="design_copy_e932e2e5acec" fallback={"Enquire on WhatsApp"} /><ArrowUpRight size={16} />
           </a>
           {p.datasheet && (
             <p style={{ marginTop: 22 }}>
@@ -115,16 +110,14 @@ export default async function Product({
                 className="text-link"
                 href={`${basePath}/api/v1/documents/` + p.datasheet.id}
               >
-                <Download size={16} />
-                Download datasheet
-              </a>
+                <Download size={16} /><WebsiteCopy id="design_copy_19faa2d3b5ce" fallback={"Download datasheet"} /></a>
             </p>
           )}
         </div>
       </div>
       {p.body && (
         <section className="product-detail-section">
-          <h2>About this material</h2>
+          <h2><WebsiteCopy id="design_copy_462df8751344" fallback={"About this material"} /></h2>
           <RichText value={p.body} />
         </section>
       )}
@@ -169,7 +162,7 @@ export default async function Product({
       <FAQs items={p.faqs || []} />
       {related.some((r) => r.id !== p.id) && (
         <section className="product-detail-section">
-          <h2>Related materials</h2>
+          <h2><WebsiteCopy id="design_copy_3e2f413aac88" fallback={"Related materials"} /></h2>
           <div className="category-grid">
             {related
               .filter((r) => r.id !== p.id)

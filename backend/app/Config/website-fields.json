@@ -1,0 +1,1483 @@
+[
+  {
+    "key": "design_brand_logo",
+    "label": "Website logo",
+    "default": "",
+    "group": "Images",
+    "type": "image",
+    "asset": "logo-transparent.png"
+  },
+  {
+    "key": "design_preloader_logo",
+    "label": "Preloader logo (blank uses website logo)",
+    "default": "",
+    "group": "Images",
+    "type": "image"
+  },
+  {
+    "key": "design_home_slide_1_image",
+    "label": "Homepage first slide (blank uses page cover)",
+    "default": "",
+    "group": "Images",
+    "type": "image"
+  },
+  {
+    "key": "design_home_slide_2_image",
+    "label": "Homepage second slide",
+    "default": "",
+    "group": "Images",
+    "type": "image",
+    "asset": "images/hero-architecture-v2.jpg"
+  },
+  {
+    "key": "design_home_intro_image",
+    "label": "Homepage introduction image",
+    "default": "",
+    "group": "Images",
+    "type": "image",
+    "asset": "images/architecture.webp"
+  },
+  {
+    "key": "design_about_intro_image",
+    "label": "About introduction image",
+    "default": "",
+    "group": "Images",
+    "type": "image",
+    "asset": "images/architecture.webp"
+  },
+  {
+    "key": "design_hero_about_image",
+    "label": "About hero",
+    "default": "",
+    "group": "Images",
+    "type": "image",
+    "asset": "images/hero-about.jpg"
+  },
+  {
+    "key": "design_hero_journal_image",
+    "label": "Journal and article hero",
+    "default": "",
+    "group": "Images",
+    "type": "image",
+    "asset": "images/hero-journal.jpg"
+  },
+  {
+    "key": "design_hero_catalogue_image",
+    "label": "Catalogue, category and product hero",
+    "default": "",
+    "group": "Images",
+    "type": "image",
+    "asset": "images/hero-journal.jpg"
+  },
+  {
+    "key": "design_hero_contact_image",
+    "label": "Contact hero",
+    "default": "",
+    "group": "Images",
+    "type": "image",
+    "asset": "images/hero-planning.jpg"
+  },
+  {
+    "key": "design_hero_quote_image",
+    "label": "Quotation hero",
+    "default": "",
+    "group": "Images",
+    "type": "image",
+    "asset": "images/hero-planning.jpg"
+  },
+  {
+    "key": "design_hero_careers_image",
+    "label": "Careers hero",
+    "default": "",
+    "group": "Images",
+    "type": "image",
+    "asset": "images/hero-about.jpg"
+  },
+  {
+    "key": "design_hero_default_image",
+    "label": "Other pages hero",
+    "default": "",
+    "group": "Images",
+    "type": "image",
+    "asset": "images/hero-about.jpg"
+  },
+  {
+    "key": "design_category_cement_products_image",
+    "label": "Cement Products fallback image",
+    "default": "",
+    "group": "Category images",
+    "type": "image",
+    "asset": "images/cement-products.webp"
+  },
+  {
+    "key": "design_category_ceramics_tiles_image",
+    "label": "Ceramics Tiles fallback image",
+    "default": "",
+    "group": "Category images",
+    "type": "image",
+    "asset": "images/ceramics-tiles.webp"
+  },
+  {
+    "key": "design_category_electrical_materials_image",
+    "label": "Electrical Materials fallback image",
+    "default": "",
+    "group": "Category images",
+    "type": "image",
+    "asset": "images/electrical-materials.webp"
+  },
+  {
+    "key": "design_category_hardware_image",
+    "label": "Hardware fallback image",
+    "default": "",
+    "group": "Category images",
+    "type": "image",
+    "asset": "images/hardware.webp"
+  },
+  {
+    "key": "design_category_plumbing_materials_image",
+    "label": "Plumbing Materials fallback image",
+    "default": "",
+    "group": "Category images",
+    "type": "image",
+    "asset": "images/plumbing-materials.webp"
+  },
+  {
+    "key": "design_category_power_tools_image",
+    "label": "Power Tools fallback image",
+    "default": "",
+    "group": "Category images",
+    "type": "image",
+    "asset": "images/power-tools.webp"
+  },
+  {
+    "key": "design_category_sanitary_ware_image",
+    "label": "Sanitary Ware fallback image",
+    "default": "",
+    "group": "Category images",
+    "type": "image",
+    "asset": "images/sanitary-ware.webp"
+  },
+  {
+    "key": "design_category_waterproofing_materials_image",
+    "label": "Waterproofing Materials fallback image",
+    "default": "",
+    "group": "Category images",
+    "type": "image",
+    "asset": "images/waterproofing-materials.webp"
+  },
+  {
+    "key": "design_color_navy",
+    "label": "Navy colour",
+    "default": "#132d3b",
+    "group": "Brand",
+    "type": "color"
+  },
+  {
+    "key": "design_color_midnight",
+    "label": "Midnight colour",
+    "default": "#0b202c",
+    "group": "Brand",
+    "type": "color"
+  },
+  {
+    "key": "design_color_gold",
+    "label": "Gold colour",
+    "default": "#d7b33e",
+    "group": "Brand",
+    "type": "color"
+  },
+  {
+    "key": "design_color_ivory",
+    "label": "Ivory colour",
+    "default": "#f8f7f3",
+    "group": "Brand",
+    "type": "color"
+  },
+  {
+    "key": "design_brand_name",
+    "label": "Brand name",
+    "default": "STABLE",
+    "group": "Brand",
+    "type": "text"
+  },
+  {
+    "key": "design_brand_subtitle",
+    "label": "Logo subtitle",
+    "default": "BUILDING MATERIALS TRADING LLC",
+    "group": "Brand",
+    "type": "text"
+  },
+  {
+    "key": "design_preloader_wordmark",
+    "label": "Preloader wordmark",
+    "default": "STABLE",
+    "group": "Brand",
+    "type": "text"
+  },
+  {
+    "key": "design_preloader_caption",
+    "label": "Preloader caption",
+    "default": "ALWAYS TRUSTED.",
+    "group": "Brand",
+    "type": "text"
+  },
+  {
+    "key": "design_hero_signature",
+    "label": "Hero side signature",
+    "default": "ALWAYS TRUSTED / STABLE",
+    "group": "Brand",
+    "type": "text"
+  },
+  {
+    "key": "design_meta_description",
+    "label": "Default search description",
+    "default": "Wholesale and retail building materials in Al Jurf, Ajman.",
+    "group": "Brand",
+    "type": "text"
+  },
+  {
+    "key": "design_preloader_enabled",
+    "label": "Enable page preloader",
+    "default": "1",
+    "group": "Motion",
+    "type": "boolean"
+  },
+  {
+    "key": "design_home_slider_enabled",
+    "label": "Enable automatic homepage slideshow",
+    "default": "1",
+    "group": "Motion",
+    "type": "boolean"
+  },
+  {
+    "key": "design_scroll_animations_enabled",
+    "label": "Enable scroll entrances",
+    "default": "1",
+    "group": "Motion",
+    "type": "boolean"
+  },
+  {
+    "key": "design_inner_hero_zoom_enabled",
+    "label": "Enable inner hero zoom",
+    "default": "1",
+    "group": "Motion",
+    "type": "boolean"
+  },
+  {
+    "key": "design_home_slider_interval",
+    "label": "Slide duration (milliseconds)",
+    "default": "3200",
+    "group": "Motion",
+    "type": "number",
+    "min": 1500,
+    "max": 20000
+  },
+  {
+    "key": "design_preloader_initial_ms",
+    "label": "First-visit logo duration (milliseconds)",
+    "default": "1250",
+    "group": "Motion",
+    "type": "number",
+    "min": 0,
+    "max": 5000
+  },
+  {
+    "key": "design_preloader_navigation_ms",
+    "label": "Navigation logo duration (milliseconds)",
+    "default": "1100",
+    "group": "Motion",
+    "type": "number",
+    "min": 0,
+    "max": 5000
+  },
+  {
+    "key": "design_home_slide_1_alt",
+    "label": "First slide description",
+    "default": "Concrete and stone architecture in warm sunset light",
+    "group": "Homepage details",
+    "type": "text"
+  },
+  {
+    "key": "design_home_slide_2_alt",
+    "label": "Second slide description",
+    "default": "Illustrative contemporary limestone architecture at golden hour",
+    "group": "Homepage details",
+    "type": "text"
+  },
+  {
+    "key": "design_trust_1",
+    "label": "Trust strip first item",
+    "default": "Wholesale & retail",
+    "group": "Homepage details",
+    "type": "text"
+  },
+  {
+    "key": "design_trust_2",
+    "label": "Trust strip second item",
+    "default": "Construction & finishing materials",
+    "group": "Homepage details",
+    "type": "text"
+  },
+  {
+    "key": "design_trust_3",
+    "label": "Trust strip third item",
+    "default": "Based in Ajman, UAE",
+    "group": "Homepage details",
+    "type": "text"
+  },
+  {
+    "key": "design_home_image_caption",
+    "label": "Introduction image caption",
+    "default": "THE DETAILS MAKE THE DIFFERENCE.",
+    "group": "Homepage details",
+    "type": "text"
+  },
+  {
+    "key": "design_home_seal_name",
+    "label": "Introduction seal name",
+    "default": "STABLE",
+    "group": "Homepage details",
+    "type": "text"
+  },
+  {
+    "key": "design_home_seal_caption",
+    "label": "Introduction seal caption",
+    "default": "ALWAYS\nTRUSTED.",
+    "group": "Homepage details",
+    "type": "text"
+  },
+  {
+    "key": "design_home_signature",
+    "label": "Introduction signature",
+    "default": "Rooted in Ajman.\nFocused on your requirements.",
+    "group": "Homepage details",
+    "type": "text"
+  },
+  {
+    "key": "design_category_link_label",
+    "label": "Category card link",
+    "default": "Explore materials",
+    "group": "Homepage details",
+    "type": "text"
+  },
+  {
+    "key": "design_illustration_note",
+    "label": "Illustration notice",
+    "default": "Material imagery is illustrative. Specific products and availability are confirmed on enquiry.",
+    "group": "Homepage details",
+    "type": "text"
+  },
+  {
+    "key": "design_journal_read_label",
+    "label": "Article link",
+    "default": "Read the story",
+    "group": "Homepage details",
+    "type": "text"
+  },
+  {
+    "key": "design_about_image_caption",
+    "label": "Introduction image caption",
+    "default": "THE FOUNDATION OF SOMETHING GREAT",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_intro_eyebrow",
+    "label": "Introduction company label",
+    "default": "STABLE BUILDING MATERIALS TRADING LLC",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_materials_label",
+    "label": "Introduction link label",
+    "default": "Explore our materials",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_materials_href",
+    "label": "Introduction link destination",
+    "default": "/products",
+    "group": "About page",
+    "type": "href"
+  },
+  {
+    "key": "design_about_support_heading",
+    "label": "Support heading",
+    "default": "PRACTICAL SUPPORT, PERSONAL ATTENTION",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_process_eyebrow",
+    "label": "Process eyebrow",
+    "default": "A SIMPLE WAY FORWARD",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_process_heading",
+    "label": "Process heading",
+    "default": "From your list to\na clearer next step.",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_process_description",
+    "label": "Process description",
+    "default": "Whether you are preparing a construction requirement or choosing the finishing details, start with a conversation about what your project needs.",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_cta_eyebrow",
+    "label": "Call-to-action eyebrow",
+    "default": "ALWAYS TRUSTED",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_cta_heading",
+    "label": "Call-to-action heading",
+    "default": "Tell us where\nyou want to begin.",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_cta_body",
+    "label": "Call-to-action description",
+    "default": "We welcome wholesale and retail enquiries for construction and finishing requirements.",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_enquiry_eyebrow",
+    "label": "Enquiry card eyebrow",
+    "default": "BRING YOUR MATERIAL LIST",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_enquiry_heading",
+    "label": "Enquiry card heading",
+    "default": "A useful starting point.",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_enquiry_body",
+    "label": "Enquiry card description",
+    "default": "A few details help us understand what you need.",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_enquiry_checklist",
+    "label": "Enquiry checklist (one item per line)",
+    "default": "Material type and intended application\nDimensions, finish and quantities\nYour required date and project location",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_cta_label",
+    "label": "Call-to-action link label",
+    "default": "Start a conversation",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_cta_href",
+    "label": "Call-to-action destination",
+    "default": "/contact",
+    "group": "About page",
+    "type": "href"
+  },
+  {
+    "key": "design_leadership_eyebrow",
+    "label": "Leadership eyebrow",
+    "default": "OUR LEADERSHIP",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_director_role",
+    "label": "Director role",
+    "default": "Managing Director",
+    "group": "About page",
+    "type": "text"
+  },
+  {
+    "key": "design_about_support_enabled",
+    "label": "Show support list",
+    "default": "1",
+    "group": "About page",
+    "type": "boolean"
+  },
+  {
+    "key": "design_about_process_enabled",
+    "label": "Show enquiry steps",
+    "default": "1",
+    "group": "About page",
+    "type": "boolean"
+  },
+  {
+    "key": "design_about_cta_enabled",
+    "label": "Show enquiry call-to-action",
+    "default": "1",
+    "group": "About page",
+    "type": "boolean"
+  },
+  {
+    "key": "design_about_support_cards",
+    "label": "Support items",
+    "default": "[{\"title\": \"Wholesale & retail enquiries\", \"body\": \"For contractors, businesses and customers planning their next project.\"}, {\"title\": \"Construction to finishing\", \"body\": \"Discuss materials for the foundations, services and finishing details.\"}, {\"title\": \"Clear next steps\", \"body\": \"Specifications, pricing and availability confirmed for your enquiry.\"}]",
+    "group": "About page",
+    "type": "cards"
+  },
+  {
+    "key": "design_about_process_cards",
+    "label": "Enquiry steps",
+    "default": "[{\"title\": \"Share your requirements.\", \"body\": \"Send your material list or bill of quantities, with the dimensions, quantities and finish you have in mind.\"}, {\"title\": \"Talk through the details.\", \"body\": \"Discuss the intended application and your required date so the team can understand the scope of your enquiry.\"}, {\"title\": \"Confirm your next step.\", \"body\": \"Review the specifications, pricing and available options with the team before deciding how to proceed.\"}]",
+    "group": "About page",
+    "type": "cards"
+  },
+  {
+    "key": "design_journal_eyebrow",
+    "label": "Journal eyebrow",
+    "default": "THE STABLE JOURNAL",
+    "group": "Page introductions",
+    "type": "text"
+  },
+  {
+    "key": "design_journal_description",
+    "label": "Journal introduction",
+    "default": "Practical thoughts on materials, planning and the details that bring a project together.",
+    "group": "Page introductions",
+    "type": "text"
+  },
+  {
+    "key": "design_careers_eyebrow",
+    "label": "Careers eyebrow",
+    "default": "PEOPLE MAKE THE DIFFERENCE",
+    "group": "Page introductions",
+    "type": "text"
+  },
+  {
+    "key": "design_careers_description",
+    "label": "Careers introduction",
+    "default": "Explore opportunities to become part of the Stable team in Ajman.",
+    "group": "Page introductions",
+    "type": "text"
+  },
+  {
+    "key": "design_contact_eyebrow",
+    "label": "Contact eyebrow",
+    "default": "RIGHT HERE IN AJMAN",
+    "group": "Page introductions",
+    "type": "text"
+  },
+  {
+    "key": "design_quote_eyebrow",
+    "label": "Quotation eyebrow",
+    "default": "LET’S GET YOUR PROJECT MOVING",
+    "group": "Page introductions",
+    "type": "text"
+  },
+  {
+    "key": "design_contact_panel_heading",
+    "label": "Contact details heading",
+    "default": "A conversation\nworth starting.",
+    "group": "Page introductions",
+    "type": "text"
+  },
+  {
+    "key": "design_contact_form_eyebrow",
+    "label": "Contact form eyebrow",
+    "default": "SEND AN ENQUIRY",
+    "group": "Page introductions",
+    "type": "text"
+  },
+  {
+    "key": "design_quote_form_eyebrow",
+    "label": "Quotation form eyebrow",
+    "default": "REQUEST A QUOTATION",
+    "group": "Page introductions",
+    "type": "text"
+  },
+  {
+    "key": "design_contact_form_heading",
+    "label": "Contact form heading",
+    "default": "What can we help with?",
+    "group": "Page introductions",
+    "type": "text"
+  },
+  {
+    "key": "design_quote_form_heading",
+    "label": "Quotation form heading",
+    "default": "Share your material list.",
+    "group": "Page introductions",
+    "type": "text"
+  },
+  {
+    "key": "design_footer_eyebrow",
+    "label": "Footer eyebrow",
+    "default": "LET’S BUILD SOMETHING THAT LASTS",
+    "group": "Footer & navigation",
+    "type": "text"
+  },
+  {
+    "key": "design_footer_explore_label",
+    "label": "Footer navigation heading",
+    "default": "Explore",
+    "group": "Footer & navigation",
+    "type": "text"
+  },
+  {
+    "key": "design_footer_materials_label",
+    "label": "Footer materials heading",
+    "default": "Our materials",
+    "group": "Footer & navigation",
+    "type": "text"
+  },
+  {
+    "key": "design_footer_contact_label",
+    "label": "Footer contact heading",
+    "default": "Find us in Ajman",
+    "group": "Footer & navigation",
+    "type": "text"
+  },
+  {
+    "key": "design_footer_whatsapp_label",
+    "label": "WhatsApp link label",
+    "default": "Let’s talk on WhatsApp",
+    "group": "Footer & navigation",
+    "type": "text"
+  },
+  {
+    "key": "design_footer_promise",
+    "label": "Footer closing line",
+    "default": "Always Trusted. Always Stable.",
+    "group": "Footer & navigation",
+    "type": "text"
+  },
+  {
+    "key": "design_floating_quote_label",
+    "label": "Floating quotation link",
+    "default": "Your quote list",
+    "group": "Footer & navigation",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_fe22d3562f56",
+    "label": "We’ll be right back.",
+    "default": "We’ll be right back.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_0e50948d1cb0",
+    "label": "Our content service is temporarily unavailable. Please try again.",
+    "default": "Our content service is temporarily unavailable. Please try again.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_9e2e9f3ef0fe",
+    "label": "Try again",
+    "default": "Try again",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_3c3d3708554e",
+    "label": "MATERIAL REQUIREMENTS",
+    "default": "MATERIAL REQUIREMENTS",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_37f9f4c6e2ea",
+    "label": "LET’S GET",
+    "default": "LET’S GET",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_84a0703c6e67",
+    "label": "STARTED.",
+    "default": "STARTED.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_184d0b393ed8",
+    "label": "STABLE JOURNAL",
+    "default": "STABLE JOURNAL",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_63db00b3e4a8",
+    "label": "Page not found.",
+    "default": "Page not found.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_804ff20ae9a9",
+    "label": "Return home",
+    "default": "Return home",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_b8b0488ad069",
+    "label": "IN THIS STORY",
+    "default": "IN THIS STORY",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_5e3d9aa39428",
+    "label": "SHARE THIS STORY",
+    "default": "SHARE THIS STORY",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_0a4c8ccadbce",
+    "label": "WhatsApp",
+    "default": "WhatsApp",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_bc838323c815",
+    "label": "Email",
+    "default": "Email",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_6c40604c64e3",
+    "label": "Planning your materials?",
+    "default": "Planning your materials?",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_a9f22767f47b",
+    "label": "Our team is here to discuss your requirements.",
+    "default": "Our team is here to discuss your requirements.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_b62bfb9c7bea",
+    "label": "Request a quotation",
+    "default": "Request a quotation",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_479147d8b96e",
+    "label": "KEEP EXPLORING",
+    "default": "KEEP EXPLORING",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_97bbc6fcaf4e",
+    "label": "More from the journal.",
+    "default": "More from the journal.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_9cb70b803a5a",
+    "label": "Find a material",
+    "default": "Find a material",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_535be3916dcd",
+    "label": "Supply category",
+    "default": "Supply category",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_09c3ccf441ea",
+    "label": "All categories",
+    "default": "All categories",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_8fe09aa8c0e4",
+    "label": "Sort by",
+    "default": "Sort by",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_96f31014e1c2",
+    "label": "Featured",
+    "default": "Featured",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_494dee5fc227",
+    "label": "Name",
+    "default": "Name",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_2151df16302a",
+    "label": "Newest",
+    "default": "Newest",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_66307fff4d09",
+    "label": "Find materials",
+    "default": "Find materials",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_846db9851d90",
+    "label": "WHOLESALE & RETAIL",
+    "default": "WHOLESALE & RETAIL",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_d0aff0ebda20",
+    "label": "Discover the category",
+    "default": "Discover the category",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_48fc5761b727",
+    "label": "Explore the details.",
+    "default": "Explore the details.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_7627ac022405",
+    "label": "Our detailed catalogue is being verified. Send your material list and we’ll help you discuss sp",
+    "default": "Our detailed catalogue is being verified. Send your material list and we’ll help you discuss specifications, pricing and availability.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_a1bc1c005785",
+    "label": "Send your requirements",
+    "default": "Send your requirements",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_446e88e2c650",
+    "label": "Material imagery is illustrative. Availability is confirmed on enquiry.",
+    "default": "Material imagery is illustrative. Availability is confirmed on enquiry.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_fd2698b6cdb2",
+    "label": "THE STABLE MATERIALS COLLECTION",
+    "default": "THE STABLE MATERIALS COLLECTION",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_0907e6cda6da",
+    "label": "YOUR REQUIREMENTS, CONSIDERED",
+    "default": "YOUR REQUIREMENTS, CONSIDERED",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_fb0d2e8c4de3",
+    "label": "A practical start",
+    "default": "A practical start",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_229f835f1667",
+    "label": "to the right selection.",
+    "default": "to the right selection.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_33ec281f8137",
+    "label": "Enquire about this category",
+    "default": "Enquire about this category",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_e77b65e7cbeb",
+    "label": "Specific products, specifications and availability are confirmed on enquiry.",
+    "default": "Specific products, specifications and availability are confirmed on enquiry.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_dbdccb5bc94d",
+    "label": "Explore this category.",
+    "default": "Explore this category.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_defd8c6ec39e",
+    "label": "Product listings",
+    "default": "Product listings",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_914866aa4970",
+    "label": "Individual product listings are being verified. Our team welcomes enquiries for your material r",
+    "default": "Individual product listings are being verified. Our team welcomes enquiries for your material requirements.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_844b152faed2",
+    "label": "Keep exploring.",
+    "default": "Keep exploring.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_fa43f0aae3db",
+    "label": "Material details.",
+    "default": "Material details.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_db458bde0387",
+    "label": "Review quote list",
+    "default": "Review quote list",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_beb8630ad17d",
+    "label": "Final pricing and availability are confirmed by the team.",
+    "default": "Final pricing and availability are confirmed by the team.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_e932e2e5acec",
+    "label": "Enquire on WhatsApp",
+    "default": "Enquire on WhatsApp",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_19faa2d3b5ce",
+    "label": "Download datasheet",
+    "default": "Download datasheet",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_462df8751344",
+    "label": "About this material",
+    "default": "About this material",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_3e2f413aac88",
+    "label": "Related materials",
+    "default": "Related materials",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_1f5586b6f7bb",
+    "label": "ABOUT THIS OPPORTUNITY",
+    "default": "ABOUT THIS OPPORTUNITY",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_ba55a41e941e",
+    "label": "Search the journal",
+    "default": "Search the journal",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_890078fbe4b8",
+    "label": "Search stories",
+    "default": "Search stories",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_ee3757415ed4",
+    "label": "Read the story",
+    "default": "Read the story",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_2ac201727bb5",
+    "label": "STAY CONNECTED",
+    "default": "STAY CONNECTED",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_430b4d0cd231",
+    "label": "Get in touch",
+    "default": "Get in touch",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_ebfe4fe678aa",
+    "label": "YOUR REQUIREMENTS",
+    "default": "YOUR REQUIREMENTS",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_2cf17a249f5b",
+    "label": "A little detail goes a long way.",
+    "default": "A little detail goes a long way.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_2b0079b28705",
+    "label": "Include quantities, dimensions and your required date. You can attach a PDF bill of quantities ",
+    "default": "Include quantities, dimensions and your required date. You can attach a PDF bill of quantities or material list.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_e70f390383c8",
+    "label": "Our team will confirm specifications, pricing and availability.",
+    "default": "Our team will confirm specifications, pricing and availability.",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_bff57c623c5c",
+    "label": "Visit us",
+    "default": "Visit us",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_4130d9d5190e",
+    "label": "Open location",
+    "default": "Open location",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_abd0a0830ee6",
+    "label": "Call the team",
+    "default": "Call the team",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_c553ba2c305c",
+    "label": "Send an email",
+    "default": "Send an email",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_866cc922e661",
+    "label": "Opening hours",
+    "default": "Opening hours",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_cb62ddabe21d",
+    "label": "Prefer a quick message?",
+    "default": "Prefer a quick message?",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_5aa9f5b9bc31",
+    "label": "Chat on WhatsApp",
+    "default": "Chat on WhatsApp",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_ffb78aaaea76",
+    "label": "STABLE / INFORMATION",
+    "default": "STABLE / INFORMATION",
+    "group": "Page wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_de85e5114b75",
+    "label": "Skip to content",
+    "default": "Skip to content",
+    "group": "Navigation wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_871fce508f78",
+    "label": "Request a quote",
+    "default": "Request a quote",
+    "group": "Navigation wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_12276e7976be",
+    "label": "THE MATERIALS COLLECTION",
+    "default": "THE MATERIALS COLLECTION",
+    "group": "Navigation wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_ae45ae2f7a6a",
+    "label": "Everything starts",
+    "default": "Everything starts",
+    "group": "Navigation wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_1b71815665f2",
+    "label": "with the right material.",
+    "default": "with the right material.",
+    "group": "Navigation wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_d16585022d32",
+    "label": "Explore all materials",
+    "default": "Explore all materials",
+    "group": "Navigation wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_3f644ca294f6",
+    "label": "Main menu",
+    "default": "Main menu",
+    "group": "Navigation wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_09f137095d53",
+    "label": "Navigate the Stable website.",
+    "default": "Navigate the Stable website.",
+    "group": "Navigation wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_5c353f67b148",
+    "label": "Request a quotation",
+    "default": "Request a quotation",
+    "group": "Navigation wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_a4287ff03073",
+    "label": "Find your starting point.",
+    "default": "Find your starting point.",
+    "group": "Navigation wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_31d6f3c8f68a",
+    "label": "Search materials by name or keyword.",
+    "default": "Search materials by name or keyword.",
+    "group": "Navigation wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_6b4aa23e0567",
+    "label": "Search",
+    "default": "Search",
+    "group": "Navigation wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_ffc3e1fc47f2",
+    "label": "Website",
+    "default": "Website",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_3589dc21059b",
+    "label": "I agree to be contacted regarding this enquiry.",
+    "default": "I agree to be contacted regarding this enquiry.",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_6c703f07546e",
+    "label": "Please acknowledge contact permission.",
+    "default": "Please acknowledge contact permission.",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_7ccc2ceff3b9",
+    "label": "Final pricing and availability are confirmed by the team.",
+    "default": "Final pricing and availability are confirmed by the team.",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_7a7b742f0af1",
+    "label": "Apply for this role",
+    "default": "Apply for this role",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_baf554857654",
+    "label": "Cover message",
+    "default": "Cover message",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_3d63ca3650d1",
+    "label": "Website",
+    "default": "Website",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_1290abafcf6f",
+    "label": "I agree to be contacted regarding this application.",
+    "default": "I agree to be contacted regarding this application.",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_add98412d13d",
+    "label": "Your material list",
+    "default": "Your material list",
+    "group": "Catalogue wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_14386e8712e3",
+    "label": "Quantity",
+    "default": "Quantity",
+    "group": "Catalogue wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_d145731a1c3d",
+    "label": "Remove",
+    "default": "Remove",
+    "group": "Catalogue wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_c02744734737",
+    "label": "No selected products. Describe your requirements in the form below.",
+    "default": "No selected products. Describe your requirements in the form below.",
+    "group": "Catalogue wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_be84f5a7bf4b",
+    "label": "Previous",
+    "default": "Previous",
+    "group": "Catalogue wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_928532f22d56",
+    "label": "Next",
+    "default": "Next",
+    "group": "Catalogue wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_69a96ea49417",
+    "label": "Home",
+    "default": "Home",
+    "group": "Catalogue wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_d954bf06162a",
+    "label": "A FEW HELPFUL ANSWERS",
+    "default": "A FEW HELPFUL ANSWERS",
+    "group": "Catalogue wording",
+    "type": "text"
+  },
+  {
+    "key": "design_copy_81e8dc71ed4a",
+    "label": "Your questions, considered.",
+    "default": "Your questions, considered.",
+    "group": "Catalogue wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_name",
+    "label": "Name field label",
+    "default": "name",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_email",
+    "label": "Email field label",
+    "default": "email",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_phone",
+    "label": "Phone field label",
+    "default": "phone",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_company",
+    "label": "Company field label",
+    "default": "company",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_message",
+    "label": "Contact message label",
+    "default": "Your message",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_quote_message",
+    "label": "Quotation message label",
+    "default": "Materials, quantities and requirements",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_location",
+    "label": "Project location label",
+    "default": "Project location (optional)",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_date",
+    "label": "Required date label",
+    "default": "Required date (optional)",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_category",
+    "label": "Material category label",
+    "default": "Material category (optional)",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_subject",
+    "label": "Subject label",
+    "default": "Subject (optional)",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_attachment",
+    "label": "BOQ attachment label",
+    "default": "BOQ or material list PDF (optional, up to 5 MB)",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_send",
+    "label": "Enquiry submit button",
+    "default": "Send enquiry",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_sending",
+    "label": "Enquiry pending button",
+    "default": "Sending…",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_resume",
+    "label": "Resume attachment label",
+    "default": "Resume PDF, DOC or DOCX (optional, up to 5 MB)",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_apply",
+    "label": "Application submit button",
+    "default": "Submit application",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_applying",
+    "label": "Application pending button",
+    "default": "Submitting…",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_form_application_success",
+    "label": "Application success message",
+    "default": "Your application has been received.",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_search_placeholder",
+    "label": "Website search placeholder",
+    "default": "What are you looking for?",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_catalogue_search_placeholder",
+    "label": "Catalogue search placeholder",
+    "default": "Search by name or keyword",
+    "group": "Form wording",
+    "type": "text"
+  },
+  {
+    "key": "design_journal_search_placeholder",
+    "label": "Journal search placeholder",
+    "default": "Find a story or topic",
+    "group": "Form wording",
+    "type": "text"
+  }
+]

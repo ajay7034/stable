@@ -182,6 +182,7 @@ class Content
     }
     public static function mediaPublic(int $id): bool
     {
+        if ($id > 0 && in_array($id, WebsiteSettings::imageIds(), true)) return true;
         foreach (
             db_connect()
                 ->table("content_publications")
