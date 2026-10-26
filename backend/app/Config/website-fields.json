@@ -1479,5 +1479,580 @@
     "default": "Find a story or topic",
     "group": "Form wording",
     "type": "text"
+  },
+  {
+    "key": "design_brand_strip_enabled",
+    "label": "Show brand collection",
+    "type": "boolean",
+    "default": "1",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_brand_strip_eyebrow",
+    "label": "Brand collection eyebrow",
+    "type": "text",
+    "default": "THE BRANDS IN OUR WORLD",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_brand_strip_heading",
+    "label": "Brand collection heading",
+    "type": "text",
+    "default": "A considered collection. One trusted source.",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_brand_strip_note",
+    "label": "Brand collection note",
+    "type": "text",
+    "default": "A selection from our company profile. Ask our team about specific brands, product ranges and current availability.",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_brand_motion_enabled",
+    "label": "Animate brand carousel",
+    "type": "boolean",
+    "default": "1",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_brand_scroll_seconds",
+    "label": "Full carousel loop duration (seconds)",
+    "type": "number",
+    "default": "220",
+    "group": "Brands & SBM",
+    "min": 30,
+    "max": 600
+  },
+  {
+    "key": "design_brand_logos",
+    "label": "Brand logos",
+    "type": "logos",
+    "default": "[]",
+    "group": "Brands & SBM",
+    "items": [
+      {
+        "name": "SBM",
+        "asset": "images/brands/sbm.webp",
+        "visible": true
+      },
+      {
+        "name": "Fumagalli",
+        "asset": "images/brands/fumagalli.webp",
+        "visible": true
+      },
+      {
+        "name": "OSRAM",
+        "asset": "images/brands/osram.webp",
+        "visible": true
+      },
+      {
+        "name": "LEDVANCE",
+        "asset": "images/brands/ledvance.webp",
+        "visible": true
+      },
+      {
+        "name": "Calix",
+        "asset": "images/brands/calix.webp",
+        "visible": true
+      },
+      {
+        "name": "Luciano",
+        "asset": "images/brands/luciano.webp",
+        "visible": true
+      },
+      {
+        "name": "Panasonic",
+        "asset": "images/brands/panasonic.webp",
+        "visible": true
+      },
+      {
+        "name": "MK by Honeywell",
+        "asset": "images/brands/mk-by-honeywell.webp",
+        "visible": true
+      },
+      {
+        "name": "Legrand",
+        "asset": "images/brands/legrand.webp",
+        "visible": true
+      },
+      {
+        "name": "Schneider Electric",
+        "asset": "images/brands/schneider-electric.webp",
+        "visible": true
+      },
+      {
+        "name": "Alfanar",
+        "asset": "images/brands/alfanar.webp",
+        "visible": true
+      },
+      {
+        "name": "Jeddah Cables",
+        "asset": "images/brands/jeddah-cables.webp",
+        "visible": true
+      },
+      {
+        "name": "Hager",
+        "asset": "images/brands/hager.webp",
+        "visible": true
+      },
+      {
+        "name": "Dorman Smith",
+        "asset": "images/brands/dorman-smith.webp",
+        "visible": true
+      },
+      {
+        "name": "Siemens",
+        "asset": "images/brands/siemens.webp",
+        "visible": true
+      },
+      {
+        "name": "CHINT",
+        "asset": "images/brands/chint.webp",
+        "visible": true
+      },
+      {
+        "name": "Rexton",
+        "asset": "images/brands/rexton.webp",
+        "visible": true
+      },
+      {
+        "name": "Longmore",
+        "asset": "images/brands/longmore.webp",
+        "visible": true
+      },
+      {
+        "name": "CMP",
+        "asset": "images/brands/cmp.webp",
+        "visible": true
+      },
+      {
+        "name": "Speedwell",
+        "asset": "images/brands/speedwell.webp",
+        "visible": true
+      },
+      {
+        "name": "HEX",
+        "asset": "images/brands/hex.webp",
+        "visible": true
+      },
+      {
+        "name": "GEWISS",
+        "asset": "images/brands/gewiss.webp",
+        "visible": true
+      },
+      {
+        "name": "PCE",
+        "asset": "images/brands/pce.webp",
+        "visible": true
+      },
+      {
+        "name": "CEE",
+        "asset": "images/brands/cee.webp",
+        "visible": true
+      },
+      {
+        "name": "Sterling Generators",
+        "asset": "images/brands/sterling-generators.webp",
+        "visible": true
+      },
+      {
+        "name": "Yale",
+        "asset": "images/brands/yale.webp",
+        "visible": true
+      },
+      {
+        "name": "Link Locks",
+        "asset": "images/brands/link-locks.webp",
+        "visible": true
+      },
+      {
+        "name": "York Locks",
+        "asset": "images/brands/york-locks.webp",
+        "visible": true
+      },
+      {
+        "name": "DORMA",
+        "asset": "images/brands/dorma.webp",
+        "visible": true
+      },
+      {
+        "name": "Robustline",
+        "asset": "images/brands/robustline.webp",
+        "visible": true
+      },
+      {
+        "name": "Makita",
+        "asset": "images/brands/makita.webp",
+        "visible": true
+      },
+      {
+        "name": "Hepworth",
+        "asset": "images/brands/hepworth.webp",
+        "visible": true
+      },
+      {
+        "name": "RAKtherm",
+        "asset": "images/brands/raktherm.webp",
+        "visible": true
+      },
+      {
+        "name": "Atlas",
+        "asset": "images/brands/atlas.webp",
+        "visible": true
+      },
+      {
+        "name": "Cosmoplast",
+        "asset": "images/brands/cosmoplast.webp",
+        "visible": true
+      },
+      {
+        "name": "Border Safety Wears",
+        "asset": "images/brands/border-safety-wears.webp",
+        "visible": true
+      },
+      {
+        "name": "Grundfos",
+        "asset": "images/brands/grundfos.webp",
+        "visible": true
+      },
+      {
+        "name": "Alden",
+        "asset": "images/brands/alden.webp",
+        "visible": true
+      },
+      {
+        "name": "Ariston",
+        "asset": "images/brands/ariston.webp",
+        "visible": true
+      },
+      {
+        "name": "Philips",
+        "asset": "images/brands/philips.webp",
+        "visible": true
+      },
+      {
+        "name": "AKAI",
+        "asset": "images/brands/akai.webp",
+        "visible": true
+      },
+      {
+        "name": "Super General",
+        "asset": "images/brands/super-general.webp",
+        "visible": true
+      },
+      {
+        "name": "Denko",
+        "asset": "images/brands/denko.webp",
+        "visible": true
+      },
+      {
+        "name": "FSL",
+        "asset": "images/brands/fsl.webp",
+        "visible": true
+      },
+      {
+        "name": "Frater",
+        "asset": "images/brands/frater.webp",
+        "visible": true
+      },
+      {
+        "name": "Lewin",
+        "asset": "images/brands/lewin.webp",
+        "visible": true
+      },
+      {
+        "name": "Organic Building System",
+        "asset": "images/brands/organic-building-system.webp",
+        "visible": true
+      },
+      {
+        "name": "Modi",
+        "asset": "images/brands/modi.webp",
+        "visible": true
+      },
+      {
+        "name": "Riyadh Cables",
+        "asset": "images/brands/riyadh-cables.webp",
+        "visible": true
+      },
+      {
+        "name": "MESC",
+        "asset": "images/brands/mesc.webp",
+        "visible": true
+      },
+      {
+        "name": "National Cables Industry",
+        "asset": "images/brands/national-cables-industry.webp",
+        "visible": true
+      },
+      {
+        "name": "Ducab",
+        "asset": "images/brands/ducab.webp",
+        "visible": true
+      },
+      {
+        "name": "Perkins",
+        "asset": "images/brands/perkins.webp",
+        "visible": true
+      },
+      {
+        "name": "Lemax",
+        "asset": "images/brands/lemax.webp",
+        "visible": true
+      },
+      {
+        "name": "Barton Engineering",
+        "asset": "images/brands/barton-engineering.webp",
+        "visible": true
+      },
+      {
+        "name": "Decoduct",
+        "asset": "images/brands/decoduct.webp",
+        "visible": true
+      },
+      {
+        "name": "Maruichi",
+        "asset": "images/brands/maruichi.webp",
+        "visible": true
+      },
+      {
+        "name": "Marshall Tufflex",
+        "asset": "images/brands/marshall-tufflex.webp",
+        "visible": true
+      },
+      {
+        "name": "BICC Components",
+        "asset": "images/brands/bicc-components.webp",
+        "visible": true
+      },
+      {
+        "name": "Palazzoli",
+        "asset": "images/brands/palazzoli.webp",
+        "visible": true
+      },
+      {
+        "name": "Scame",
+        "asset": "images/brands/scame.webp",
+        "visible": true
+      },
+      {
+        "name": "LSD",
+        "asset": "images/brands/lsd.webp",
+        "visible": true
+      },
+      {
+        "name": "Furse",
+        "asset": "images/brands/furse.webp",
+        "visible": true
+      },
+      {
+        "name": "Kingsmill",
+        "asset": "images/brands/kingsmill.webp",
+        "visible": true
+      },
+      {
+        "name": "Wallis",
+        "asset": "images/brands/wallis.webp",
+        "visible": true
+      },
+      {
+        "name": "DeWalt",
+        "asset": "images/brands/dewalt.webp",
+        "visible": true
+      },
+      {
+        "name": "Assurance",
+        "asset": "images/brands/assurance.webp",
+        "visible": true
+      },
+      {
+        "name": "Zara Tapes",
+        "asset": "images/brands/zara-tapes.webp",
+        "visible": true
+      },
+      {
+        "name": "Asian Paints Berger",
+        "asset": "images/brands/asian-paints-berger.webp",
+        "visible": true
+      },
+      {
+        "name": "Deli",
+        "asset": "images/brands/deli.webp",
+        "visible": true
+      },
+      {
+        "name": "Dorfit",
+        "asset": "images/brands/dorfit.webp",
+        "visible": true
+      },
+      {
+        "name": "Vactrex",
+        "asset": "images/brands/vactrex.webp",
+        "visible": true
+      },
+      {
+        "name": "3M",
+        "asset": "images/brands/3m.webp",
+        "visible": true
+      },
+      {
+        "name": "Pegler",
+        "asset": "images/brands/pegler.webp",
+        "visible": true
+      },
+      {
+        "name": "Crane Plumbing",
+        "asset": "images/brands/crane-plumbing.webp",
+        "visible": true
+      },
+      {
+        "name": "PEX Plumbex UK",
+        "asset": "images/brands/pex-plumbex-uk.webp",
+        "visible": true
+      },
+      {
+        "name": "OPEX",
+        "asset": "images/brands/opex.webp",
+        "visible": true
+      },
+      {
+        "name": "J Max",
+        "asset": "images/brands/j-max.webp",
+        "visible": true
+      },
+      {
+        "name": "ABB",
+        "asset": "images/brands/abb.webp",
+        "visible": true
+      },
+      {
+        "name": "Cellpack",
+        "asset": "images/brands/cellpack.webp",
+        "visible": true
+      },
+      {
+        "name": "Topex",
+        "asset": "images/brands/topex.webp",
+        "visible": true
+      },
+      {
+        "name": "Stanley",
+        "asset": "images/brands/stanley.webp",
+        "visible": true
+      },
+      {
+        "name": "Prakash",
+        "asset": "images/brands/prakash.webp",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "key": "design_sbm_enabled",
+    "label": "Show SBM feature",
+    "type": "boolean",
+    "default": "1",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_sbm_logo",
+    "label": "SBM feature logo",
+    "type": "image",
+    "default": "",
+    "group": "Brands & SBM",
+    "asset": "images/brands/sbm.webp",
+    "license": "User-supplied SBM trademark. Cleaned from supplied reference without redesign."
+  },
+  {
+    "key": "design_sbm_badge",
+    "label": "SBM badge",
+    "type": "text",
+    "default": "Our own brand",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_sbm_signature",
+    "label": "SBM signature",
+    "type": "text",
+    "default": "Part of the Stable family",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_sbm_eyebrow",
+    "label": "SBM eyebrow",
+    "type": "text",
+    "default": "INTRODUCING SBM",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_sbm_heading",
+    "label": "SBM heading",
+    "type": "text",
+    "default": "Our name.\nYour next foundation.",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_sbm_description",
+    "label": "SBM description",
+    "type": "text",
+    "default": "Meet SBM, Stable’s own brand for everyday building needs. From electrical essentials to plywood, we bring your material requirements together with personal guidance from our team.",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_sbm_materials",
+    "label": "SBM materials",
+    "type": "cards",
+    "default": "[{\"title\": \"Electrical essentials\", \"body\": \"Discuss your electrical material list with our team, from installation essentials to the finishing details.\"}, {\"title\": \"Plywood & boards\", \"body\": \"Tell us the sheet sizes, thicknesses and application your project needs. We\\u2019ll help you explore the SBM range.\"}]",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_sbm_cta_label",
+    "label": "SBM enquiry label",
+    "type": "text",
+    "default": "Enquire about SBM",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_sbm_cta_href",
+    "label": "SBM enquiry page",
+    "type": "href",
+    "default": "/request-quote",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_sbm_note",
+    "label": "SBM availability note",
+    "type": "text",
+    "default": "Specifications, product range, pricing and availability are confirmed on enquiry.",
+    "group": "Brands & SBM"
+  },
+  {
+    "key": "design_contact_secondary_phone",
+    "label": "Additional phone number",
+    "type": "phone",
+    "default": "+971 50 569 8227",
+    "group": "Contact & WhatsApp"
+  },
+  {
+    "key": "design_contact_whatsapp",
+    "label": "WhatsApp number (international)",
+    "type": "phone",
+    "default": "+971 50 569 8227",
+    "group": "Contact & WhatsApp"
+  },
+  {
+    "key": "design_contact_whatsapp_enabled",
+    "label": "Show floating WhatsApp button",
+    "type": "boolean",
+    "default": "1",
+    "group": "Contact & WhatsApp"
+  },
+  {
+    "key": "design_contact_whatsapp_label",
+    "label": "WhatsApp button label",
+    "type": "text",
+    "default": "Chat on WhatsApp",
+    "group": "Contact & WhatsApp"
   }
 ]

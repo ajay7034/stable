@@ -15,3 +15,14 @@ export function websiteStyle(values: WebsiteValues): CSSProperties {
   }
   return style as CSSProperties;
 }
+
+export type WebsiteLogo = { name: string; image: string; visible: boolean };
+export function websiteLogos(value?: string): WebsiteLogo[] {
+  try {
+    const items = JSON.parse(value || "[]");
+    return Array.isArray(items) ? items.filter((item) => typeof item.name === "string" && /^\d+$/.test(item.image) && typeof item.visible === "boolean") : [];
+  } catch { return []; }
+}
+export function whatsappLink(values: WebsiteValues) {
+  return "https://wa.me/" + (values.design_contact_whatsapp || values.whatsapp || "971505698227").replace(/\D/g, "");
+}

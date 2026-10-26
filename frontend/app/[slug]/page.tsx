@@ -1,6 +1,6 @@
 import { WebsiteCopy } from "@/components/website-copy";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-import { websiteCards, websiteImage } from "@/lib/website";
+import { whatsappLink, websiteCards, websiteImage } from "@/lib/website";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { QuoteList } from "@/components/quote-list";
@@ -289,6 +289,7 @@ export default async function Page({
                 <article>
                   <span><WebsiteCopy id="design_copy_abd0a0830ee6" fallback={"Call the team"} /></span>
                   <a href={"tel:" + s.phone}>{s.phone}</a>
+                  {s.design_contact_secondary_phone && <a className="secondary-phone" href={"tel:" + s.design_contact_secondary_phone.replace(/[^+\d]/g, "")}>{s.design_contact_secondary_phone}</a>}
                 </article>
                 <article>
                   <span><WebsiteCopy id="design_copy_c553ba2c305c" fallback={"Send an email"} /></span>
@@ -307,8 +308,7 @@ export default async function Page({
               <a
                 className="text-link"
                 href={
-                  "https://wa.me/" +
-                  (s.whatsapp || "971525463574").replace(/\D/g, "")
+                  whatsappLink(s)
                 }
               ><WebsiteCopy id="design_copy_5aa9f5b9bc31" fallback={"Chat on WhatsApp"} /><ArrowUpRight size={16} />
               </a>

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { clientApi } from "@/lib/client-api";
-import { websiteImage } from "@/lib/website";
+import { websiteImage, websiteLogos } from "@/lib/website";
 type Field = { key: string; label: string; group: string; type: string; default: string; min?: number; max?: number };
 type Card = { title: string; body: string };
 type Settings = { fields: Field[]; values: Record<string, string>; media: { id: number; alt: string; folder: string }[] };
@@ -28,6 +28,17 @@ export function WebsiteEditor({ csrf }: { csrf: string }) {
       <h2>{group}</h2>
       {data.fields.filter((field) => field.group === group).map((field) => {
         const value = data.values[field.key] ?? field.default;
+        if (field.type === "logos") {
+          const logos = websiteLogos(value);
+          const save = (items: typeof logos) => update(field.key, JSON.stringify(items));
+          return <fieldset key={field.key} className="website-card-editor website-logo-editor"><legend>{field.label}</legend><p>Upload logos in Media first, then select them here. The first logo receives a highlighted border. Hidden logos stay in the editor. Publish when ready.</p><div className="website-logo-list">{logos.map((logo, index) => <details className="website-card-row" key={index}><summary>{String(index + 1).padStart(2, "0")} · {logo.name || "Untitled brand"} <small>{logo.visible ? "Visible" : "Hidden"}</small></summary>
+            <label>Brand {index + 1} name<input aria-label={`Brand ${index + 1} name`} maxLength={120} value={logo.name} onChange={(event) => save(logos.map((item, i) => i === index ? { ...item, name: event.target.value } : item))} /></label>
+            <label>Brand {index + 1} image<select aria-label={`Brand ${index + 1} image`} value={logo.image} onChange={(event) => save(logos.map((item, i) => i === index ? { ...item, image: event.target.value } : item))}><option value="" disabled>Select image</option>{data.media.map((image) => <option key={image.id} value={String(image.id)}>{image.alt || "Untitled image"}{image.folder ? ` — ${image.folder}` : ""}</option>)}</select></label>
+            {logo.image && <img className="website-image-preview" src={websiteImage(logo.image)} alt={`${logo.name} preview`} loading="lazy" />}
+            <label>Brand {index + 1} visibility<select aria-label={`Brand ${index + 1} visibility`} value={logo.visible ? "1" : "0"} onChange={(event) => save(logos.map((item, i) => i === index ? { ...item, visible: event.target.value === "1" } : item))}><option value="1">Visible</option><option value="0">Hidden</option></select></label>
+            <div className="row-actions"><button type="button" disabled={!index} onClick={() => { const next = [...logos]; [next[index - 1], next[index]] = [next[index], next[index - 1]]; save(next); }}>Move up</button><button type="button" disabled={index === logos.length - 1} onClick={() => { const next = [...logos]; [next[index + 1], next[index]] = [next[index], next[index + 1]]; save(next); }}>Move down</button><button type="button" onClick={() => save(logos.filter((_, i) => i !== index))}>Remove logo</button></div>
+          </details>)}</div><button type="button" disabled={logos.length >= 100 || !data.media.length} onClick={() => save([...logos, { name: "New brand", image: String(data.media[0].id), visible: true }])}>Add brand logo</button></fieldset>;
+        }
         if (field.type === "cards") {
           let cards: Card[] = []; try { cards = JSON.parse(value); } catch {}
           const saveCards = (items: Card[]) => update(field.key, JSON.stringify(items));

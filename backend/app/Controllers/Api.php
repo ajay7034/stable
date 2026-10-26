@@ -494,7 +494,7 @@ class Api extends ResourceController
                 if (
                     !in_array($key, $keys) ||
                     !is_string($value) ||
-                    strlen($value) > 5000
+                    strlen($value) > ($key === "design_brand_logos" ? 30000 : 5000)
                 ) {
                     return $this->failValidationErrors("Invalid setting");
                 }

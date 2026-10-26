@@ -42,7 +42,7 @@ export default async function Layout({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: s.company_name,
-    telephone: s.phone,
+    telephone: [s.phone, s.design_contact_secondary_phone].filter(Boolean),
     email: s.email,
     address: {
       "@type": "PostalAddress",
@@ -57,7 +57,7 @@ export default async function Layout({
       <body style={websiteStyle(s)}>
         <WebsiteProvider settings={s}>
         <PagePreloader />
-        <noscript><style>{".page-preloader{display:none!important}"}</style></noscript>
+        <noscript><style>{".page-preloader{display:none!important}.brand-marquee{overflow:visible;mask-image:none}.brand-track{animation:none;width:100%}.brand-logo-set{flex-wrap:wrap;justify-content:center;width:100%}.brand-logo-set[aria-hidden],.brand-pause{display:none}"}</style></noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

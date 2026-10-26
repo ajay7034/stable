@@ -30,3 +30,7 @@ Use a disposable development database for submission tests. Fresh-install valida
 Local Lighthouse measurements are recorded separately in `performance.json`; they use mobile simulated throttling and system Chromium. Results vary by host load and deployment configuration. Real-world performance and HTTPS operation should be checked after staging deployment.
 
 Final local mobile Lighthouse result: performance **85**, accessibility **100**, best practices **100**, SEO **100**. FCP 1.3 s, LCP 4.0 s, total blocking time 150 ms, CLS 0.002. The 90+ performance goal was not reached on this machine; production caching, PHP-FPM and mobile hero delivery remain useful deployment optimizations.
+
+## Brand collection and own-brand feature
+
+The brand/SBM update was validated in an isolated database and production-mode frontend with the `/stable` prefix. All 23 focused browser checks passed (the six CMS checks were rerun successfully after tightening JSON-list validation). Coverage includes left-to-right carousel movement, pause/offscreen behavior, reduced-motion/no-JavaScript fallback, mobile overflow, floating-control separation, contact links, live admin publication, list validation, selected-media protection, and the existing hero/preloader/page-content regressions. PHP syntax checks and the production Next.js build passed. Desktop and mobile screenshots were visually inspected.

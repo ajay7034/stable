@@ -6,7 +6,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { websiteImage } from "@/lib/website";
+import { websiteImage, whatsappLink } from "@/lib/website";
 import Image from "next/image";
 import * as Dialog from "@radix-ui/react-dialog";
 import {
@@ -73,8 +73,7 @@ export function SiteShell({
   if (path.startsWith("/admin")) return <>{children}</>;
   const nav = menu.filter((m) => m.group_name === "header"),
     footer = menu.filter((m) => m.group_name === "footer");
-  const whatsapp =
-    "https://wa.me/" + (s.whatsapp || "971525463574").replace(/\D/g, "");
+  const whatsapp = whatsappLink(s);
   const logo = (
     <Link
       className="brand"
@@ -108,6 +107,7 @@ export function SiteShell({
             <Phone size={11} />
             {s.phone}
           </a>
+          {s.design_contact_secondary_phone && <a href={"tel:" + s.design_contact_secondary_phone.replace(/[^+\d]/g, "")}><Phone size={11} />{s.design_contact_secondary_phone}</a>}
         </div>
       </div>
       <header className="site-header">
@@ -226,6 +226,7 @@ export function SiteShell({
             <div className="mobile-contact">
               <p>{s.address}</p>
               <a href={"tel:" + s.phone}>{s.phone}</a>
+              {s.design_contact_secondary_phone && <a href={"tel:" + s.design_contact_secondary_phone.replace(/[^+\d]/g, "")}>{s.design_contact_secondary_phone}</a>}
             </div>
           </Dialog.Content>
         </Dialog.Portal>
@@ -305,6 +306,7 @@ export function SiteShell({
             <h3>{s.design_footer_contact_label}</h3>
             <p>{s.address}</p>
             <a href={"tel:" + s.phone}>{s.phone}</a>
+              {s.design_contact_secondary_phone && <a href={"tel:" + s.design_contact_secondary_phone.replace(/[^+\d]/g, "")}>{s.design_contact_secondary_phone}</a>}
             <a href={"mailto:" + s.email}>{s.email}</a>
             <a className="footer-whatsapp" href={whatsapp}>
               {s.design_footer_whatsapp_label}
@@ -339,6 +341,7 @@ export function SiteShell({
           <span>{s.design_footer_promise}</span>
         </div>
       </footer>
+      {s.design_contact_whatsapp_enabled !== "0" && <a className="floating-whatsapp" href={whatsapp} target="_blank" rel="noopener noreferrer" aria-label={s.design_contact_whatsapp_label || "Chat with Stable on WhatsApp"}><svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6A12 12 0 0 0 12 24c6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.5ZM12 22a10 10 0 0 1-5.1-1.4l-.4-.2-3.7 1 1-3.6-.3-.4A10 10 0 1 1 12 22Zm5.5-7.5c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 1.1-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4S5.7 7.6 5.7 9s1 2.8 1.2 3 2.1 3.2 5.1 4.5l1.7.6a4 4 0 0 0 1.9.1c.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4s-.2-.2-.5-.4Z" /></svg><span>{s.design_contact_whatsapp_label || "Chat on WhatsApp"}</span></a>}
       {count > 0 && path !== "/request-quote" && (
         <Link className="floating-quote" href="/request-quote">
           <ClipboardList size={20} />

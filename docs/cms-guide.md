@@ -34,3 +34,11 @@ Use the group tabs to find Images, Category images, Brand, Motion, Homepage deta
 Images selected by published website settings are publicly readable and cannot be deleted while referenced. Unselected private uploads stay protected. Website values accept validated image references, colours, booleans, bounded timings, internal links and plain text; executable HTML, JavaScript and CSS editors are intentionally not provided. Passwords and SMTP credentials must never be put in public website fields.
 
 Production accounts are created separately using the interactive `stable:admin` command. Passwords are hashed, never seeded or included in deployment source.
+
+### Brand collection, SBM and WhatsApp
+
+In **Website design → Brands & SBM**, edit the homepage brand collection and the own-brand SBM feature. The collection starts with the 83 distinct logos extracted from the supplied company profile; its duplicate Alfanar entry is included once. Upload replacement artwork in **Media**, then select it in the brand editor. Each entry supports a name, image, visibility, removal and ordering. The first visible logo receives a highlighted border. Up to 100 entries are supported. Publish website settings to apply changes immediately. Referenced logo files, including hidden entries, are protected from deletion; hidden entries do not grant public media access.
+
+The same group controls carousel visibility, motion, full-loop speed, all SBM wording, material cards, feature logo and enquiry link. The carousel moves left to right, pauses offscreen, on hover and when the tab is hidden, and provides a pause button. Reduced-motion visitors see a static logo collection.
+
+In **Website design → Contact & WhatsApp**, edit the additional phone number, WhatsApp destination, floating-button label and visibility. The existing main phone remains in **Settings**. WhatsApp links throughout the public site use the configured destination. Website settings are public: never enter passwords or other private information.

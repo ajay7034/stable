@@ -204,7 +204,7 @@ class Content
     }
     public static function mediaUsed(int $id): bool
     {
-        if (self::mediaPublic($id)) {
+        if (in_array($id, WebsiteSettings::imageIds(true), true) || self::mediaPublic($id)) {
             return true;
         }
         $db = db_connect();

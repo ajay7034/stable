@@ -112,3 +112,44 @@ test("page drafts remain isolated and publishing applies cover images and conten
     await expect(page.locator(".inner-hero-background img")).toHaveAttribute("src", new RegExp(`/media/${website.values.design_hero_contact_image}$`));
   } finally { expect((await put(about)).status()).toBe(200); }
 });
+
+test("brands and SBM publish from admin, hidden logo media stays protected and invalid entries are rejected", async ({ page, request }) => {
+  test.setTimeout(90000);
+  const csrf = await signIn(page.request);
+  const before = await settings(page.request);
+  const logos = JSON.parse(before.values.design_brand_logos);
+  expect(logos).toHaveLength(83);
+  const changed = [ { ...logos[2], name: "CMS brand verification" }, { ...logos[0], visible: false } ];
+  try {
+    for (const bad of ['{}', '[{"name":"Bad","image":"9999999","visible":true}]', '[{"name":"Bad","image":"javascript:alert(1)","visible":true}]', JSON.stringify([{...logos[0],html:"invalid"}])]) {
+      expect((await save(page.request, csrf, { design_brand_logos: bad })).status()).toBe(400);
+    }
+    expect((await save(page.request, csrf, { design_contact_whatsapp: "javascript:bad" })).status()).toBe(400);
+    expect((await save(page.request, csrf, { design_brand_logos: JSON.stringify(changed), design_sbm_heading: "CMS own brand verification" })).status()).toBe(200);
+    await page.goto(site);
+    await expect(page.locator(".brand-logo-set:not([aria-hidden]) img")).toHaveCount(1);
+    await expect(page.locator(".brand-logo-set:not([aria-hidden]) img")).toHaveAttribute("alt", "CMS brand verification");
+    await expect(page.getByRole("heading", {name:"CMS own brand verification"})).toBeAttached();
+    // First logo is also selected as SBM feature, so use the hidden entry below with another image.
+    const hidden = [{ ...logos[1], visible:false }];
+    expect((await save(page.request, csrf, { design_brand_logos: JSON.stringify(hidden) })).status()).toBe(200);
+    expect((await request.get(`${site}/api/v1/media/${logos[1].image}`)).status()).toBe(404);
+    expect((await page.request.delete(`${site}/api/v1/admin/media/${logos[1].image}`, { headers:{"X-CSRF-Token":csrf} })).status()).toBe(409);
+    expect((await save(page.request, csrf, { design_brand_logos: before.values.design_brand_logos })).status()).toBe(200);
+    await page.goto(`${site}/admin`);
+    await page.getByRole("button", {name:"Website design",exact:true}).click();
+    await page.getByRole("button", {name:"Brands & SBM",exact:true}).click();
+    await expect(page.getByLabel("Brand 1 name",{exact:true})).toHaveValue("SBM");
+    await page.getByRole("button", {name:"Add brand logo",exact:true}).click();
+    await expect(page.getByLabel("Brand 84 name",{exact:true})).toHaveValue("New brand");
+    await page.locator(".website-logo-list details").last().locator("summary").click();
+    await page.getByRole("button", {name:"Remove logo",exact:true}).click();
+    await page.getByLabel("SBM heading",{exact:true}).fill("Published from the brand editor");
+    await page.getByRole("button",{name:"Publish website settings",exact:true}).click();
+    await expect(page.getByText("Website settings published. Refresh the public website to see your changes.")).toBeVisible();
+    await page.goto(site);
+    await expect(page.getByRole("heading",{name:"Published from the brand editor"})).toBeAttached();
+  } finally {
+    expect((await save(page.request, csrf, { design_brand_logos: before.values.design_brand_logos, design_sbm_heading: before.values.design_sbm_heading })).status()).toBe(200);
+  }
+});

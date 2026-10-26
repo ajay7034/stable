@@ -1,3 +1,4 @@
+import { whatsappLink } from "@/lib/website";
 import { WebsiteCopy } from "@/components/website-copy";
 import { PageHero } from "@/components/page-hero";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -91,8 +92,7 @@ export default async function Product({
           <a
             className="text-link"
             href={
-              "https://wa.me/" +
-              (s.whatsapp || "971525463574").replace(/\D/g, "") +
+              whatsappLink(s) +
               "?text=" +
               encodeURIComponent(
                 "Hello Stable, I would like to enquire about " +

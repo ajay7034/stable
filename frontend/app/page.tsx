@@ -13,6 +13,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { api, RecordData } from "@/lib/api";
 import { websiteImage } from "@/lib/website";
+import { BrandShowcase } from "@/components/brand-showcase";
 import { HeroSlideshow } from "@/components/hero-slideshow";
 import { Reveal } from "@/components/reveal";
 import { MaterialVisual } from "@/components/material-visual";
@@ -82,6 +83,7 @@ export default async function Home() {
         </div>
         <span className="hero-index">{settings.design_hero_signature}</span>
       </section>
+      <BrandShowcase />
       <div className="trust-strip">
         <span>{settings.brand_theme}</span>
         <span>
